@@ -5,58 +5,47 @@
     <title>Survey Form</title>
   </head>
   <body>
-    <h1 id="title"> Darel isn't he amazing? </h1>
-    <p id="description"> This is a personal questionnaire that will allow you to give your opinion on whether Darel is amazing or not. </p>
+    <h1 id="title">Darel isn't he amazing?</h1>
+    <p id="description">This is a personal questionnaire that will allow you to give your opinion on whether Darel is amazing or not.</p>
     <form id="survey-form" action="https://formspree.io/f/xojnnrro" method="POST">
-      <label for="name" id="name-label"> Full Name </label>
-      <input required id="name" name="name" type="text" placeholder="AHOLOU Crusis Darel" />
-      
-      <label for="email" id="email-label"> Email </label>
-      <input id="email" name="email" type="email" required placeholder="darelaholou@gmail.com" />
-      
-      <label for="number" id="number-label"> Age </label>
+      <label for="name" id="name-label">Full Name</label>
+      <input required id="name" name="name" type="text" placeholder="Your name" />
+      <label for="email" id="email-label">Email</label>
+      <input id="email" name="email" type="email" required placeholder="your@email.com" />
+      <label for="number" id="number-label">Age</label>
       <input id="number" name="age" type="number" required placeholder="18" min="1" max="120" />
-      
-      <p> In your opinion, what best describes your relationship with Darel? </p>
+      <p>In your opinion, what best describes your relationship with Darel?</p>
       <select id="dropdown" name="relation">
-        <option value="1"> Friend </option>
-        <option value="2"> Best Friend </option>
-        <option value="3"> Brother </option>
-        <option value="4"> Just Knowledge </option>
-        <option value="5"> Budding love </option>
-        <option value="6"> Lover </option>
-        <option value="7"> Ex-Lover </option>
+        <option value="1">Friend</option>
+        <option value="2">Best Friend</option>
+        <option value="3">Brother</option>
+        <option value="4">Just Knowledge</option>
+        <option value="5">Budding love</option>
+        <option value="6">Lover</option>
+        <option value="7">Ex-Lover</option>
       </select>
-
-      <p>And so we arrive at the moment where you must judge whether I am amazing or less so — but first, am I detestable or likeable?</p>
+      <p>Am I detestable or likeable?</p>
       <input type="radio" name="likeable_or_detestable" value="likeable" id="likeable" />
-      <label for="likeable"> Likeable </label>
+      <label for="likeable">Likeable</label>
       <input type="radio" name="likeable_or_detestable" value="detestable" id="detestable" />
-      <label for="detestable"> Detestable </label>
-
-      <p> Congratulations, here we are. In your opinion, am I amazing? </p>
+      <label for="detestable">Detestable</label>
+      <p>In your opinion, am I amazing?</p>
       <input type="radio" name="amazing_or_not" value="amazing" id="amazing" />
-      <label for="amazing"> Amazing </label>
+      <label for="amazing">Amazing</label>
       <input type="radio" name="amazing_or_not" value="not_amazing" id="not_amazing" />
-      <label for="not_amazing"> Not Amazing </label>
-
-      <p> It's not over. I can be amazing to you without necessarily being important, or not amazing and still be important, or both. So let's make sure. </p>
-      
-      <p> Would you say that I am a good or a bad person? </p>
+      <label for="not_amazing">Not Amazing</label>
+      <p>Would you say that I am a good or a bad person?</p>
       <input type="checkbox" name="good_person" id="good" value="good" />
-      <label for="good"> Good Person </label>
+      <label for="good">Good Person</label>
       <input type="checkbox" name="bad_person" id="bad" value="bad" />
-      <label for="bad"> Bad Person </label>
-
-      <p> Am I important to you? </p>
+      <label for="bad">Bad Person</label>
+      <p>Am I important to you?</p>
       <input type="checkbox" name="important" id="yes" value="yes" />
-      <label for="yes"> Yes </label>
+      <label for="yes">Yes</label>
       <input type="checkbox" name="not_important" id="no" value="no" />
-      <label for="no"> No </label>
-
-      <p> Now briefly tell me what you think of me </p>
+      <label for="no">No</label>
+      <p>Now briefly tell me what you think of me</p>
       <textarea name="opinion" placeholder="Your opinion..."></textarea>
-      
       <button id="submit" type="submit">Submit</button>
     </form>
   </body>
