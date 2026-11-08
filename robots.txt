@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /thanks.html
+
+Sitemap: https://darelaholou4-ux.github.io/Darel-survey/sitemap.xml

@@ -1,0 +1,19 @@
+{
+  "name": "Crusis Darel Aholou — survey & business card",
+  "short_name": "Darel",
+  "description": "The personal survey and the digital business card of Crusis Darel Aholou.",
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4efe9",
+  "theme_color": "#33506e",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

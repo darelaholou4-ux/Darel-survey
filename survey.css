@@ -1,120 +1,17 @@
 /* ==========================================================================
-   Survey form — design tokens
+   Formulaire d'enquête
    ========================================================================== */
-:root {
-  --bg: #f4efe9;
-  --bg-accent: #e7ded4;
-  --surface: #fffdfb;
-  --surface-2: #f7f2ec;
-  --text: #1f2a37;
-  --text-muted: #5d6b7b;
-  --line: #dcd2c6;
-  --brand: #33506e;
-  --brand-strong: #24405c;
-  --accent: #b5654f;
-  --accent-soft: #fbeee9;
-  --danger: #b3261e;
-  --radius: 16px;
-  --radius-sm: 10px;
-  --shadow: 0 1px 2px rgb(31 42 55 / 0.06), 0 18px 40px -24px rgb(31 42 55 / 0.45);
-  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #131a22;
-    --bg-accent: #18222c;
-    --surface: #1b2530;
-    --surface-2: #212d3a;
-    --text: #eaf0f6;
-    --text-muted: #a5b3c2;
-    --line: #334252;
-    --brand: #8fb4d8;
-    --brand-strong: #b6d0ea;
-    --accent: #e39a84;
-    --accent-soft: #33232a;
-    --danger: #ff8a80;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 18px 40px -24px rgb(0 0 0 / 0.8);
-  }
-}
-
-/* ==========================================================================
-   Base
-   ========================================================================== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
 body {
-  margin: 0;
-  min-height: 100vh;
-  padding: clamp(1.25rem, 4vw, 3.5rem) 1rem;
-  font-family: var(--font);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text);
-  background:
-    radial-gradient(60rem 40rem at 85% -10%, var(--bg-accent), transparent 70%),
-    var(--bg);
+  padding: clamp(1rem, 3vw, 2.5rem) 1rem clamp(2rem, 5vw, 3.5rem);
 }
 
-h1,
-p {
-  margin: 0;
-}
-
-a {
-  color: var(--brand);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-a:hover {
-  color: var(--brand-strong);
-}
-
-:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-
-/* Skip link — visible only on keyboard focus */
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -4rem;
-  z-index: 10;
-  padding: 0.6rem 1rem;
-  border-radius: 999px;
-  background: var(--brand);
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  transition: top 150ms ease;
-}
-
-.skip-link:focus {
-  top: 1rem;
-  color: #fff;
-}
-
-/* ==========================================================================
-   Layout
-   ========================================================================== */
 .page {
   width: min(46rem, 100%);
   margin-inline: auto;
 }
 
 .page-header {
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
   text-align: center;
 }
 
@@ -140,15 +37,8 @@ h1 {
   color: var(--text-muted);
 }
 
-.page-footer {
-  margin-top: 1.75rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
 /* ==========================================================================
-   Form shell
+   Carte du formulaire
    ========================================================================== */
 .survey {
   padding: clamp(1.25rem, 4vw, 2.25rem);
@@ -158,6 +48,72 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+/* Barre de progression --------------------------------------------------- */
+.progress {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.75rem;
+}
+
+.progress__bar {
+  position: relative;
+  height: 0.4rem;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.progress__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--brand));
+  border-radius: inherit;
+  transition: width 220ms ease;
+}
+
+.progress__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Messages (brouillon restauré) ------------------------------------------ */
+.notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  border-radius: var(--radius-sm);
+}
+
+.notice[hidden] {
+  display: none;
+}
+
+.notice button {
+  all: unset;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.notice button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Sections ---------------------------------------------------------------- */
 .group {
   margin: 0;
   padding: 0;
@@ -165,18 +121,27 @@ h1 {
 }
 
 .group + .group {
-  margin-top: 2rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--line);
+  margin-top: clamp(1.75rem, 4vw, 2.5rem);
 }
 
 .group__title {
+  display: block;
+  width: 100%;
   padding: 0;
   margin-bottom: 1.1rem;
-  font-size: 1.05rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--brand);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.group__title::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 0.5rem;
+  background: var(--line);
 }
 
 .field + .field {
@@ -200,7 +165,7 @@ label,
 }
 
 /* ==========================================================================
-   Inputs
+   Champs
    ========================================================================== */
 input[type="text"],
 input[type="email"],
@@ -258,7 +223,7 @@ select {
   cursor: pointer;
 }
 
-/* Invalid state only once the user has interacted (see survey.js) */
+/* Erreurs affichées après interaction seulement */
 .survey.was-validated :invalid {
   border-color: var(--danger);
 }
@@ -268,7 +233,7 @@ select {
 }
 
 /* ==========================================================================
-   Radio "choice" chips
+   Choix (radios / cases)
    ========================================================================== */
 .choices {
   display: grid;
@@ -284,7 +249,7 @@ select {
   background: var(--surface-2);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  transition: border-color 150ms ease, background 150ms ease, transform 150ms ease;
+  transition: border-color 150ms ease, background 150ms ease;
 }
 
 .choice:hover {
@@ -318,7 +283,7 @@ select {
 }
 
 /* ==========================================================================
-   Textarea counter, status, button
+   Compteur, statut, actions
    ========================================================================== */
 .counter {
   margin-top: 0.4rem;
@@ -339,36 +304,14 @@ select {
   display: none;
 }
 
-button {
-  display: block;
-  width: 100%;
+.form-actions {
+  display: grid;
+  gap: 0.75rem;
   margin-top: 1.5rem;
-  padding: 0.85rem 1.25rem;
-  font: inherit;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: #fff;
-  background: linear-gradient(180deg, var(--brand), var(--brand-strong));
-  border: 0;
-  border-radius: 999px;
-  cursor: pointer;
-  box-shadow: 0 10px 22px -12px rgb(36 64 92 / 0.9);
-  transition: transform 150ms ease, filter 150ms ease, box-shadow 150ms ease;
 }
 
-button:hover {
-  filter: brightness(1.07);
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-button:disabled {
-  cursor: progress;
-  filter: grayscale(0.5);
-  transform: none;
+.form-actions .btn {
+  width: 100%;
 }
 
 .privacy {
@@ -378,14 +321,23 @@ button:disabled {
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   Preferences
-   ========================================================================== */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+@media (max-width: 26rem) {
+  .choices {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 30rem) {
+  .form-actions {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .form-actions .btn {
+    width: auto;
+  }
+
+  .form-actions .btn:first-child {
+    width: 100%;
   }
 }

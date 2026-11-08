@@ -3,31 +3,58 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Survey Form · Darel isn't he amazing?</title>
+    <title>Survey · Darel isn't he amazing?</title>
     <meta
       name="description"
-      content="A short, anonymous-friendly personal questionnaire: tell Darel what you really think of him."
+      content="A short personal questionnaire: tell Crusis Darel Aholou what you really think of him. Available in English and French."
     />
     <meta name="color-scheme" content="light dark" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>"
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131a22" />
+
+    <link rel="canonical" href="https://darelaholou4-ux.github.io/Darel-survey/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Survey · Darel isn't he amazing?" />
+    <meta
+      property="og:description"
+      content="Tell Crusis Darel Aholou what you really think of him — 2 minutes, English or French."
     />
+    <meta property="og:url" content="https://darelaholou4-ux.github.io/Darel-survey/" />
+    <meta property="og:image" content="https://darelaholou4-ux.github.io/Darel-survey/assets/preview-survey.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="survey.css" />
+    <script src="i18n.js" defer></script>
     <script src="survey.js" defer></script>
   </head>
 
-  <body>
-    <a class="skip-link" href="#survey-form">Skip to the form</a>
+  <body data-title-key="title.survey">
+    <a class="skip-link" href="#survey-form" data-i18n="a11y.skip">Skip to the form</a>
+
+    <header class="topbar">
+      <a class="topbar__brand" href="index.html" aria-label="CD — Crusis Darel Aholou, home page">CD</a>
+      <nav class="topbar__nav" aria-label="Main navigation" data-i18n-aria-label="nav.label">
+        <a href="index.html" aria-current="page" data-i18n="nav.survey">Survey</a>
+        <a href="business-card.html" data-i18n="nav.card">Business card</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria-label="lang.label">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+    </header>
 
     <main class="page">
       <header class="page-header">
-        <p class="eyebrow">Personal questionnaire</p>
-        <h1 id="title">Darel isn't he amazing?</h1>
-        <p id="description">
-          This is a personal questionnaire that will allow you to give your
-          opinion on whether Darel is amazing or not. It takes about two
-          minutes, and every answer helps.
+        <p class="eyebrow" data-i18n="survey.eyebrow">Personal questionnaire</p>
+        <h1 id="title" data-i18n="survey.title">Darel isn't he amazing?</h1>
+        <p id="description" data-i18n="survey.description">
+          This is a personal questionnaire that will allow you to give your opinion on
+          whether Darel is amazing or not. It takes about two minutes, and every answer
+          helps.
         </p>
       </header>
 
@@ -38,29 +65,57 @@
         method="POST"
       >
         <input type="hidden" name="_subject" value="New answer to the Darel survey" />
+        <input
+          type="hidden"
+          name="_next"
+          value="https://darelaholou4-ux.github.io/Darel-survey/thanks.html"
+        />
+
+        <div class="progress">
+          <div
+            class="progress__bar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="7"
+            aria-valuenow="0"
+            aria-label="Form completion"
+            data-i18n-aria-label="survey.progressLabel"
+            id="progress"
+          >
+            <span class="progress__fill" id="progress-fill"></span>
+          </div>
+          <p class="progress__label" id="progress-label">0 of 7 required answers</p>
+        </div>
+
+        <div class="notice" id="draft-notice" role="status" hidden>
+          <span data-i18n="survey.draftRestored">Your draft was restored.</span>
+          <button type="button" id="clear-draft" data-i18n="survey.draftClear">Start over</button>
+        </div>
 
         <fieldset class="group">
-          <legend class="group__title">About you</legend>
+          <legend class="group__title" data-i18n="survey.groupAbout">About you</legend>
 
           <div class="field">
-            <label id="name-label" for="name">Full name</label>
+            <label id="name-label" for="name" data-i18n="survey.name">Full name</label>
             <input
               id="name"
               name="name"
               type="text"
               placeholder="Your name"
+              data-i18n-placeholder="survey.namePlaceholder"
               autocomplete="name"
               required
             />
           </div>
 
           <div class="field">
-            <label id="email-label" for="email">Email</label>
+            <label id="email-label" for="email" data-i18n="survey.email">Email</label>
             <input
               id="email"
               name="email"
               type="email"
               placeholder="your@email.com"
+              data-i18n-placeholder="survey.emailPlaceholder"
               autocomplete="email"
               required
             />
@@ -68,7 +123,8 @@
 
           <div class="field">
             <label id="number-label" for="number">
-              Age <span class="hint">(1–120)</span>
+              <span data-i18n="survey.age">Age</span>
+              <span class="hint" data-i18n="survey.ageHint">(1–120)</span>
             </label>
             <input
               id="number"
@@ -83,27 +139,31 @@
           </div>
 
           <div class="field">
-            <label for="dropdown">
+            <label for="dropdown" data-i18n="survey.relation">
               In your opinion, what best describes your relationship with Darel?
             </label>
             <select id="dropdown" name="relation" required>
-              <option value="" disabled selected>Choose one…</option>
-              <option value="1">Friend</option>
-              <option value="2">Best Friend</option>
-              <option value="3">Brother</option>
-              <option value="4">Just Knowledge</option>
-              <option value="5">Budding love</option>
-              <option value="6">Lover</option>
-              <option value="7">Ex-Lover</option>
+              <option value="" disabled selected data-i18n="survey.relationChoose">
+                Choose one…
+              </option>
+              <option value="1" data-i18n="survey.relationFriend">Friend</option>
+              <option value="2" data-i18n="survey.relationBest">Best Friend</option>
+              <option value="3" data-i18n="survey.relationBrother">Brother</option>
+              <option value="4" data-i18n="survey.relationKnow">Just Knowledge</option>
+              <option value="5" data-i18n="survey.relationBudding">Budding love</option>
+              <option value="6" data-i18n="survey.relationLover">Lover</option>
+              <option value="7" data-i18n="survey.relationEx">Ex-Lover</option>
             </select>
           </div>
         </fieldset>
 
         <fieldset class="group">
-          <legend class="group__title">Your honest opinion</legend>
+          <legend class="group__title" data-i18n="survey.groupOpinion">
+            Your honest opinion
+          </legend>
 
           <div class="field">
-            <p class="field__label" id="likeable-question">
+            <p class="field__label" id="likeable-question" data-i18n="survey.qLikeable">
               Am I detestable or likeable?
             </p>
             <div class="choices" role="radiogroup" aria-labelledby="likeable-question">
@@ -115,7 +175,7 @@
                   value="likeable"
                   required
                 />
-                <label for="likeable">Likeable</label>
+                <label for="likeable" data-i18n="survey.likeable">Likeable</label>
               </div>
               <div class="choice">
                 <input
@@ -124,13 +184,13 @@
                   name="likeable_or_detestable"
                   value="detestable"
                 />
-                <label for="detestable">Detestable</label>
+                <label for="detestable" data-i18n="survey.detestable">Detestable</label>
               </div>
             </div>
           </div>
 
           <div class="field">
-            <p class="field__label" id="amazing-question">
+            <p class="field__label" id="amazing-question" data-i18n="survey.qAmazing">
               In your opinion, am I amazing?
             </p>
             <div class="choices" role="radiogroup" aria-labelledby="amazing-question">
@@ -142,7 +202,7 @@
                   value="amazing"
                   required
                 />
-                <label for="amazing">Amazing</label>
+                <label for="amazing" data-i18n="survey.amazing">Amazing</label>
               </div>
               <div class="choice">
                 <input
@@ -151,47 +211,47 @@
                   name="amazing_or_not"
                   value="not_amazing"
                 />
-                <label for="not_amazing">Not Amazing</label>
+                <label for="not_amazing" data-i18n="survey.notAmazing">Not Amazing</label>
               </div>
             </div>
           </div>
 
           <div class="field">
-            <p class="field__label" id="person-question">
+            <p class="field__label" id="person-question" data-i18n="survey.qPerson">
               Would you say that I am a good or a bad person?
             </p>
             <div class="choices" role="group" aria-labelledby="person-question">
               <div class="choice">
                 <input type="checkbox" id="good" name="good_person" value="good" />
-                <label for="good">Good Person</label>
+                <label for="good" data-i18n="survey.good">Good Person</label>
               </div>
               <div class="choice">
                 <input type="checkbox" id="bad" name="bad_person" value="bad" />
-                <label for="bad">Bad Person</label>
+                <label for="bad" data-i18n="survey.bad">Bad Person</label>
               </div>
             </div>
           </div>
 
           <div class="field">
-            <p class="field__label" id="important-question">
+            <p class="field__label" id="important-question" data-i18n="survey.qImportant">
               Am I important to you?
             </p>
             <div class="choices" role="group" aria-labelledby="important-question">
               <div class="choice">
                 <input type="checkbox" id="important" name="important" value="yes" />
-                <label for="important">Yes</label>
+                <label for="important" data-i18n="survey.yes">Yes</label>
               </div>
               <div class="choice">
                 <input type="checkbox" id="not_important" name="not_important" value="no" />
-                <label for="not_important">No</label>
+                <label for="not_important" data-i18n="survey.no">No</label>
               </div>
             </div>
           </div>
 
           <div class="field">
             <label for="opinion">
-              Now briefly tell me what you think of me
-              <span class="hint">(optional)</span>
+              <span data-i18n="survey.opinion">Now briefly tell me what you think of me</span>
+              <span class="hint" data-i18n="survey.optional">(optional)</span>
             </label>
             <textarea
               id="opinion"
@@ -199,27 +259,42 @@
               rows="5"
               maxlength="600"
               placeholder="Your opinion…"
+              data-i18n-placeholder="survey.opinionPlaceholder"
               aria-describedby="opinion-counter"
             ></textarea>
             <p class="counter" id="opinion-counter" aria-live="polite">
-              <span data-count>0</span>/600 characters
+              <span data-count>0</span>/600
+              <span data-i18n="survey.characters">characters</span>
             </p>
           </div>
         </fieldset>
 
-        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        <p class="form-status" id="form-status" role="alert" aria-live="assertive"></p>
 
-        <button id="submit" type="submit">Submit my answers</button>
+        <div class="form-actions">
+          <button class="btn" id="submit" type="submit" data-i18n="survey.submit">
+            Submit my answers
+          </button>
+          <button class="btn btn--ghost" id="reset-form" type="reset" data-i18n="survey.reset">
+            Clear form
+          </button>
+        </div>
 
-        <p class="privacy">
+        <p
+          class="privacy"
+          data-i18n-html="survey.privacy"
+        >
           Answers are delivered to Darel through
           <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">Formspree</a>.
         </p>
       </form>
-
-      <footer class="page-footer">
-        <p>Thanks for taking the time — it genuinely means a lot.</p>
-      </footer>
     </main>
+
+    <footer class="site-footer">
+      <p data-i18n="survey.footer">Thanks for taking the time — it genuinely means a lot.</p>
+      <nav aria-label="Other pages" data-i18n-aria-label="nav.more">
+        <a href="business-card.html" data-i18n="nav.card">Business card</a>
+      </nav>
+    </footer>
   </body>
 </html>
