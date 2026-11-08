@@ -78,7 +78,7 @@
 
       /* Carte de visite --------------------------------------------------- */
       "card.designation": "Student in Mathematics, Computer Science and Applications (MIA)",
-      "card.alt": "Illustration of the Akatsuki from Naruto",
+      "card.alt": "Original illustration: a hooded figure facing a red sun at dawn",
       "card.newTab": "(opens in a new tab)",
       "card.portfolio": "Portfolio",
       "card.copyEmail": "Copy email",
@@ -165,7 +165,7 @@
       /* Carte de visite --------------------------------------------------- */
       "card.designation":
         "Étudiant en Mathématiques, Informatique et Applications (MIA)",
-      "card.alt": "Illustration de l'Akatsuki dans Naruto",
+      "card.alt": "Illustration originale : silhouette encapuchonnée face au soleil rouge",
       "card.newTab": "(s'ouvre dans un nouvel onglet)",
       "card.portfolio": "Portfolio",
       "card.copyEmail": "Copier l'e-mail",

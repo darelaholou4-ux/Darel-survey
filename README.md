@@ -62,7 +62,9 @@ npm test             # structure, traductions, liens, syntaxe JS
   sombre.
 
 **Performance et partage**
-- aucune police, image ou script externe (hors l'illustration de la carte) ;
+- aucune police, image ou script externe : tout est servi depuis le dépôt ;
+- illustration d'en-tête originale et locale (`assets/profil.jpg`) — remplaçable par
+  n'importe quelle photo du même nom ;
 - favicon SVG, manifeste, `theme-color`, `robots.txt`, `sitemap.xml`,
   `.nojekyll` ;
 - balises Open Graph / Twitter avec images d'aperçu dans `assets/`.
