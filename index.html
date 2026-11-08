@@ -1,52 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <title>Survey Form</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Survey Form · Darel isn't he amazing?</title>
+    <meta
+      name="description"
+      content="A short, anonymous-friendly personal questionnaire: tell Darel what you really think of him."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>"
+    />
+    <link rel="stylesheet" href="survey.css" />
+    <script src="survey.js" defer></script>
   </head>
+
   <body>
-    <h1 id="title">Darel isn't he amazing?</h1>
-    <p id="description">This is a personal questionnaire that will allow you to give your opinion on whether Darel is amazing or not.</p>
-    <form id="survey-form" action="https://formspree.io/f/xojnnrro" method="POST">
-      <label for="name" id="name-label">Full Name</label>
-      <input required id="name" name="name" type="text" placeholder="Your name" />
-      <label for="email" id="email-label">Email</label>
-      <input id="email" name="email" type="email" required placeholder="your@email.com" />
-      <label for="number" id="number-label">Age</label>
-      <input id="number" name="age" type="number" required placeholder="18" min="1" max="120" />
-      <p>In your opinion, what best describes your relationship with Darel?</p>
-      <select id="dropdown" name="relation">
-        <option value="1">Friend</option>
-        <option value="2">Best Friend</option>
-        <option value="3">Brother</option>
-        <option value="4">Just Knowledge</option>
-        <option value="5">Budding love</option>
-        <option value="6">Lover</option>
-        <option value="7">Ex-Lover</option>
-      </select>
-      <p>Am I detestable or likeable?</p>
-      <input type="radio" name="likeable_or_detestable" value="likeable" id="likeable" />
-      <label for="likeable">Likeable</label>
-      <input type="radio" name="likeable_or_detestable" value="detestable" id="detestable" />
-      <label for="detestable">Detestable</label>
-      <p>In your opinion, am I amazing?</p>
-      <input type="radio" name="amazing_or_not" value="amazing" id="amazing" />
-      <label for="amazing">Amazing</label>
-      <input type="radio" name="amazing_or_not" value="not_amazing" id="not_amazing" />
-      <label for="not_amazing">Not Amazing</label>
-      <p>Would you say that I am a good or a bad person?</p>
-      <input type="checkbox" name="good_person" id="good" value="good" />
-      <label for="good">Good Person</label>
-      <input type="checkbox" name="bad_person" id="bad" value="bad" />
-      <label for="bad">Bad Person</label>
-      <p>Am I important to you?</p>
-      <input type="checkbox" name="important" id="yes" value="yes" />
-      <label for="yes">Yes</label>
-      <input type="checkbox" name="not_important" id="no" value="no" />
-      <label for="no">No</label>
-      <p>Now briefly tell me what you think of me</p>
-      <textarea name="opinion" placeholder="Your opinion..."></textarea>
-      <button id="submit" type="submit">Submit</button>
-    </form>
+    <a class="skip-link" href="#survey-form">Skip to the form</a>
+
+    <main class="page">
+      <header class="page-header">
+        <p class="eyebrow">Personal questionnaire</p>
+        <h1 id="title">Darel isn't he amazing?</h1>
+        <p id="description">
+          This is a personal questionnaire that will allow you to give your
+          opinion on whether Darel is amazing or not. It takes about two
+          minutes, and every answer helps.
+        </p>
+      </header>
+
+      <form
+        id="survey-form"
+        class="survey"
+        action="https://formspree.io/f/xojnnrro"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New answer to the Darel survey" />
+
+        <fieldset class="group">
+          <legend class="group__title">About you</legend>
+
+          <div class="field">
+            <label id="name-label" for="name">Full name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label id="email-label" for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label id="number-label" for="number">
+              Age <span class="hint">(1–120)</span>
+            </label>
+            <input
+              id="number"
+              name="age"
+              type="number"
+              placeholder="18"
+              min="1"
+              max="120"
+              inputmode="numeric"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="dropdown">
+              In your opinion, what best describes your relationship with Darel?
+            </label>
+            <select id="dropdown" name="relation" required>
+              <option value="" disabled selected>Choose one…</option>
+              <option value="1">Friend</option>
+              <option value="2">Best Friend</option>
+              <option value="3">Brother</option>
+              <option value="4">Just Knowledge</option>
+              <option value="5">Budding love</option>
+              <option value="6">Lover</option>
+              <option value="7">Ex-Lover</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend class="group__title">Your honest opinion</legend>
+
+          <div class="field">
+            <p class="field__label" id="likeable-question">
+              Am I detestable or likeable?
+            </p>
+            <div class="choices" role="radiogroup" aria-labelledby="likeable-question">
+              <div class="choice">
+                <input
+                  type="radio"
+                  id="likeable"
+                  name="likeable_or_detestable"
+                  value="likeable"
+                  required
+                />
+                <label for="likeable">Likeable</label>
+              </div>
+              <div class="choice">
+                <input
+                  type="radio"
+                  id="detestable"
+                  name="likeable_or_detestable"
+                  value="detestable"
+                />
+                <label for="detestable">Detestable</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <p class="field__label" id="amazing-question">
+              In your opinion, am I amazing?
+            </p>
+            <div class="choices" role="radiogroup" aria-labelledby="amazing-question">
+              <div class="choice">
+                <input
+                  type="radio"
+                  id="amazing"
+                  name="amazing_or_not"
+                  value="amazing"
+                  required
+                />
+                <label for="amazing">Amazing</label>
+              </div>
+              <div class="choice">
+                <input
+                  type="radio"
+                  id="not_amazing"
+                  name="amazing_or_not"
+                  value="not_amazing"
+                />
+                <label for="not_amazing">Not Amazing</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <p class="field__label" id="person-question">
+              Would you say that I am a good or a bad person?
+            </p>
+            <div class="choices" role="group" aria-labelledby="person-question">
+              <div class="choice">
+                <input type="checkbox" id="good" name="good_person" value="good" />
+                <label for="good">Good Person</label>
+              </div>
+              <div class="choice">
+                <input type="checkbox" id="bad" name="bad_person" value="bad" />
+                <label for="bad">Bad Person</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <p class="field__label" id="important-question">
+              Am I important to you?
+            </p>
+            <div class="choices" role="group" aria-labelledby="important-question">
+              <div class="choice">
+                <input type="checkbox" id="important" name="important" value="yes" />
+                <label for="important">Yes</label>
+              </div>
+              <div class="choice">
+                <input type="checkbox" id="not_important" name="not_important" value="no" />
+                <label for="not_important">No</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="opinion">
+              Now briefly tell me what you think of me
+              <span class="hint">(optional)</span>
+            </label>
+            <textarea
+              id="opinion"
+              name="opinion"
+              rows="5"
+              maxlength="600"
+              placeholder="Your opinion…"
+              aria-describedby="opinion-counter"
+            ></textarea>
+            <p class="counter" id="opinion-counter" aria-live="polite">
+              <span data-count>0</span>/600 characters
+            </p>
+          </div>
+        </fieldset>
+
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+        <button id="submit" type="submit">Submit my answers</button>
+
+        <p class="privacy">
+          Answers are delivered to Darel through
+          <a href="https://formspree.io" target="_blank" rel="noopener noreferrer">Formspree</a>.
+        </p>
+      </form>
+
+      <footer class="page-footer">
+        <p>Thanks for taking the time — it genuinely means a lot.</p>
+      </footer>
+    </main>
   </body>
 </html>

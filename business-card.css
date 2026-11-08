@@ -1,31 +1,250 @@
-
-body{
-  background: rosybrown;
-  font-family: Arial, Sans-serif;
+/* ==========================================================================
+   Business card — design tokens
+   ========================================================================== */
+:root {
+  --bg: #f4efe9;
+  --bg-accent: #e6dcd1;
+  --card: #fffdfb;
+  --text: #22303d;
+  --text-muted: #5f6e7d;
+  --brand: #33506e;
+  --brand-strong: #24405c;
+  --accent: #b5654f;
+  --line: #e2d8cc;
+  --radius: 22px;
+  --shadow: 0 2px 4px rgb(31 42 55 / 0.05), 0 30px 60px -30px rgb(31 42 55 / 0.55);
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
-.business-card{
-  width: 300px;
-  background: #6A7F9A;
-  padding:20px;
-  margin:100px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131a22;
+    --bg-accent: #1b2734;
+    --card: #1b2530;
+    --text: #eaf0f6;
+    --text-muted: #a5b3c2;
+    --brand: #8fb4d8;
+    --brand-strong: #b6d0ea;
+    --accent: #e39a84;
+    --line: #334252;
+    --shadow: 0 2px 4px rgb(0 0 0 / 0.35), 0 30px 60px -30px rgb(0 0 0 / 0.9);
+  }
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.25rem, 5vw, 3rem) 1rem;
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text);
+  background:
+    radial-gradient(45rem 30rem at 15% 0%, var(--bg-accent), transparent 65%),
+    var(--bg);
+}
+
+p,
+h2,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: var(--brand);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 150ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Card
+   ========================================================================== */
+.business-card {
+  width: min(22rem, 100%);
+  padding: clamp(1.5rem, 5vw, 2rem);
   text-align: center;
-  font-size: 16px;
-  margin-left: auto;
-  margin-right: auto;  
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-.profile-image{
-  max-width: 100%;
+.card-header {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
 }
 
-p{
-  margin-top: 5px;
-  margin-bottom: 5px;
+.profile-image {
+  width: 9rem;
+  height: 9rem;
+  margin-bottom: 0.85rem;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--bg-accent);
+  border: 3px solid var(--card);
+  box-shadow: 0 0 0 3px var(--accent), 0 12px 24px -14px rgb(36 64 92 / 0.8);
 }
 
-a{
+.full-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--brand);
+}
+
+.designation {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.company {
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+hr {
+  height: 1px;
+  margin: 1.35rem 0;
+  border: 0;
+  background: var(--line);
+}
+
+/* ==========================================================================
+   Contact + social links
+   ========================================================================== */
+.contact-list {
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact-list a::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+
+.portfolio-link {
+  font-weight: 600;
+}
+
+.social-media h2 {
+  margin-bottom: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.social-list a {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
   text-decoration: none;
+  color: var(--brand);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: color 150ms ease, background 150ms ease, border-color 150ms ease,
+    transform 150ms ease;
 }
 
+.social-list a:hover {
+  color: #fff;
+  background: var(--brand);
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
 
+/* ==========================================================================
+   Preferences
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body {
+    padding: 0;
+    background: #fff;
+  }
+
+  .business-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .social-list a {
+    border-color: #999;
+  }
+}
