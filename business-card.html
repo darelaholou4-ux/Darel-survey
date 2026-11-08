@@ -1,49 +1,167 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crusis Darel Aholou · Business card</title>
+    <meta
+      name="description"
+      content="Digital business card of Crusis Darel Aholou — student in Mathematics, Computer Science and Applications (MIA), Cotonou, Benin."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4efe9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131a22" />
 
-<head>
-    <meta charset="utf-8">
-    <title>Business Card</title>
+    <link rel="canonical" href="https://darelaholou4-ux.github.io/Darel-survey/business-card.html" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Crusis Darel Aholou · Business card" />
+    <meta
+      property="og:description"
+      content="Student in Mathematics, Computer Science and Applications (MIA) — contact, portfolio and social links."
+    />
+    <meta property="og:url" content="https://darelaholou4-ux.github.io/Darel-survey/business-card.html" />
+    <meta property="og:image" content="https://darelaholou4-ux.github.io/Darel-survey/assets/preview-card.png" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="stylesheet" href="business-card.css">
-</head>
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="business-card.css" />
+    <script src="i18n.js" defer></script>
+    <script src="business-card.js" defer></script>
+  </head>
 
-<body>
-  <div class="business-card">
-    <img class="profile-image" src="https://i.pinimg.com/1200x/5d/9a/f3/5d9af313219564759f167f3f7d5145d6.jpg" alt="Beautiful image of AKATSUKI">
-    <p class="full-name" translate="no"> AHOLOU Crusis Darel </p>
+  <body data-title-key="title.card">
+    <a class="skip-link" href="#card" data-i18n="a11y.skipContent">Skip to the content</a>
 
-    <p class="designation"> Student in Mathematics, Computer Science and Applications (MIA) </p>
+    <header class="topbar">
+      <a class="topbar__brand" href="index.html" aria-label="CD — Crusis Darel Aholou, home page">CD</a>
+      <nav class="topbar__nav" aria-label="Main navigation" data-i18n-aria-label="nav.label">
+        <a href="index.html" data-i18n="nav.survey">Survey</a>
+        <a href="business-card.html" aria-current="page" data-i18n="nav.card">Business card</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria-label="lang.label">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      </div>
+    </header>
 
-    <p class="company"> L'AKATSUKI </p>
+    <main class="page" id="card">
+      <article class="business-card" aria-labelledby="card-name">
+        <div class="card-banner" aria-hidden="true"></div>
 
-    <hr>
-    <p> <a href="mailto:darelaholou4@gmail.com">darelaholou4@gmail.com</a> </p>
+        <header class="card-header">
+          <div class="avatar" id="avatar">
+            <span class="avatar__fallback" aria-hidden="true">CD</span>
+            <img
+              class="profile-image"
+              src="https://i.pinimg.com/1200x/5d/9a/f3/5d9af313219564759f167f3f7d5145d6.jpg"
+              alt="Illustration of the Akatsuki from Naruto"
+              data-i18n-alt="card.alt"
+              width="300"
+              height="300"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
 
-    <p><a href="tel:+2290195909112"> 0195909112</a>  </p>
+          <h1 class="full-name" id="card-name" translate="no">AHOLOU Crusis Darel</h1>
+          <p class="designation" data-i18n="card.designation">
+            Student in Mathematics, Computer Science and Applications (MIA)
+          </p>
+          <p class="company">L'AKATSUKI</p>
+        </header>
 
-    
+        <hr />
 
-    <a href="https://darelaholou4-ux.github.io" target="_blank" class="portfolio-link" translate="no">Portfolio</a>
-    <hr>
-    
-     <div class="social-media">
-    <h2> Connect with me </h2>
+        <ul class="contact-list">
+          <li>
+            <a href="mailto:darelaholou4@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m2 7 10 6 10-6" />
+              </svg>
+              <span>darelaholou4@gmail.com</span>
+            </a>
+          </li>
+          <li>
+            <a href="tel:+2290195909112">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+              </svg>
+              <span>+229 01 95 90 91 12</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="portfolio-link"
+              href="https://darelaholou4-ux.github.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              translate="no"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20Z" />
+              </svg>
+              <span data-i18n="card.portfolio">Portfolio</span>
+              <span class="visually-hidden" data-i18n="card.newTab">(opens in a new tab)</span>
+            </a>
+          </li>
+        </ul>
 
-  
-<a href="https://x.com/DAholou76424" target="_blank">Twitter</a>
+        <hr />
 
-<a href="https://linkedin.com/in/darel-aholou-0228253b3/" target="_blank">LinkedIn</a>
+        <nav class="social-media" aria-labelledby="social-title">
+          <h2 id="social-title" data-i18n="card.socialTitle">Connect with me</h2>
+          <ul class="social-list">
+            <li>
+              <a href="https://x.com/DAholou76424" target="_blank" rel="noopener noreferrer">Twitter</a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/darel-aholou-0228253b3/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/darelaholou4-ux" target="_blank" rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+        </nav>
 
- <a href="https://github.com/darelaholou4-ux" target="_blank">GitHub</a>
-  </div>      
+        <div class="card-actions">
+          <a
+            class="btn"
+            href="assets/crusis-darel-aholou.vcf"
+            download="Crusis-Darel-Aholou.vcf"
+            data-i18n="card.saveContact"
+            >Save contact</a
+          >
+          <button class="btn btn--ghost" id="copy-email" type="button" data-i18n="card.copyEmail">
+            Copy email
+          </button>
+          <button class="btn btn--ghost" id="share-card" type="button" data-i18n="card.share" hidden>
+            Share card
+          </button>
+        </div>
 
-  </div>
-   
-</body>
+        <p class="toast" id="toast" role="status" aria-live="polite"></p>
+      </article>
+    </main>
 
+    <footer class="site-footer">
+      <p data-i18n="card.footer">
+        Digital business card — tap “Save contact” to add me to your phone.
+      </p>
+      <nav aria-label="Other pages" data-i18n-aria-label="nav.more">
+        <a href="index.html" data-i18n="nav.survey">Survey</a>
+      </nav>
+    </footer>
+  </body>
 </html>
-
-

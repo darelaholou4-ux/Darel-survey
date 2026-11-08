@@ -1,0 +1,23 @@
+{
+  "name": "darel-survey",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal survey form, digital business card and thank-you page — plain HTML, CSS and JavaScript.",
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000",
+    "check": "node tools/check.mjs",
+    "test": "node tools/check.mjs && node --check i18n.js && node --check survey.js && node --check business-card.js"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "survey",
+    "business-card"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
