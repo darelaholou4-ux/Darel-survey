@@ -16,6 +16,20 @@
 
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
+    <link
+      rel="preload"
+      href="assets/fonts/inter-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/instrument-serif-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="thanks.css" />
     <script src="i18n.js" defer></script>
@@ -52,9 +66,9 @@
         </p>
 
         <div class="thanks-actions">
-          <a class="btn" href="index.html" data-i18n="thanks.back">Answer the survey again</a>
+          <a class="btn" href="index.html" data-i18n="thanks.back">Take the survey again</a>
           <a class="btn btn--ghost" href="business-card.html" data-i18n="thanks.card">
-            See Darel's business card
+            View business card
           </a>
         </div>
       </div>
@@ -62,6 +76,7 @@
 
     <footer class="site-footer">
       <p data-i18n="thanks.footer">Made with care in Cotonou, Benin.</p>
+      <p class="site-footer__legal">© 2026 Crusis Darel Aholou</p>
     </footer>
   </body>
 </html>

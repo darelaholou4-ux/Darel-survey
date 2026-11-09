@@ -118,8 +118,12 @@ for (const [file, html] of Object.entries(pages)) {
   }
 }
 
-for (const file of ["actions", "scripts"]) {
-  void file;
+// Polices et images référencées depuis les feuilles de style
+for (const sheet of ["base.css", "survey.css", "business-card.css", "thanks.css"]) {
+  if (!existsSync(join(root, sheet))) continue;
+  for (const match of read(sheet).matchAll(/url\("([^"]+)"\)/g)) {
+    if (!existsSync(join(root, match[1]))) fail(`${sheet} : ressource introuvable → ${match[1]}`);
+  }
 }
 
 /* ------------------------------------------------------------------------ */

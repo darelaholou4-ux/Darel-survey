@@ -78,7 +78,7 @@
 
       /* Carte de visite --------------------------------------------------- */
       "card.designation": "Student in Mathematics, Computer Science and Applications (MIA)",
-      "card.alt": "Illustration of the Akatsuki from Naruto",
+      "card.alt": "Original illustration: a hooded figure facing a red sun at dawn",
       "card.newTab": "(opens in a new tab)",
       "card.portfolio": "Portfolio",
       "card.copyEmail": "Copy email",
@@ -94,8 +94,8 @@
       "thanks.title": "Thank you!",
       "thanks.message":
         "Your answers have been sent to Darel. He reads every single one — even the brutally honest ones.",
-      "thanks.back": "Answer the survey again",
-      "thanks.card": "See Darel's business card",
+      "thanks.back": "Take the survey again",
+      "thanks.card": "View business card",
       "thanks.footer": "Made with care in Cotonou, Benin.",
     },
 
@@ -165,7 +165,7 @@
       /* Carte de visite --------------------------------------------------- */
       "card.designation":
         "Étudiant en Mathématiques, Informatique et Applications (MIA)",
-      "card.alt": "Illustration de l'Akatsuki dans Naruto",
+      "card.alt": "Illustration originale : silhouette encapuchonnée face au soleil rouge",
       "card.newTab": "(s'ouvre dans un nouvel onglet)",
       "card.portfolio": "Portfolio",
       "card.copyEmail": "Copier l'e-mail",
@@ -182,8 +182,8 @@
       "thanks.title": "Merci !",
       "thanks.message":
         "Vos réponses ont été envoyées à Darel. Il les lit toutes, même les plus honnêtes.",
-      "thanks.back": "Répondre à nouveau au sondage",
-      "thanks.card": "Voir la carte de visite de Darel",
+      "thanks.back": "Répondre à nouveau",
+      "thanks.card": "Voir la carte de visite",
       "thanks.footer": "Fait avec soin à Cotonou, au Bénin.",
     },
   };
