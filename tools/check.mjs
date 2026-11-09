@@ -186,6 +186,35 @@ if (!existsSync(join(root, pagesWorkflow))) {
   }
 }
 
+/* ------------------------------------------------------------------------ */
+/* 7. Cohérence de la marque                                                 */
+/* ------------------------------------------------------------------------ */
+const company = (card.match(/class="company"[^>]*>([^<]+)</) || [])[1]?.trim();
+const vcf = read("assets/crusis-darel-aholou.vcf");
+const org = (vcf.match(/^ORG:(.+)$/m) || [])[1]?.trim();
+
+if (!company) fail("business-card.html : nom d'entreprise introuvable dans .company");
+if (!org) fail("vCard : champ ORG manquant");
+if (company && org && company.toLowerCase() !== org.toLowerCase()) {
+  fail(`marque incohérente : carte « ${company} » ≠ vCard « ${org} »`);
+}
+
+const monograms = new Set();
+for (const [file, html] of Object.entries(pages)) {
+  const found = html.match(/class="topbar__brand"[^>]*>([^<]+)</);
+  if (!found) fail(`${file} : monogramme absent de la barre (lien d'accueil)`);
+  else monograms.add(found[1].trim());
+}
+if (monograms.size > 1) fail(`monogrammes différents selon les pages : ${[...monograms].join(" / ")}`);
+
+const iconMonogram = (read("icon.svg").match(/<text[\s\S]*?>([^<]+)<\/text>/) || [])[1]?.trim();
+if (monograms.size === 1 && iconMonogram && iconMonogram !== [...monograms][0]) {
+  fail(`favicon incohérent : icon.svg « ${iconMonogram} » ≠ barre « ${[...monograms][0]} »`);
+}
+if (monograms.size === 1 && !new RegExp(`aria-label="${[...monograms][0]}[^"]*home page"`).test(card)) {
+  warn("business-card.html : le libellé d'accessibilité du logo ne reprend pas le monogramme");
+}
+
 try {
   JSON.parse(read("site.webmanifest"));
 } catch (error) {
