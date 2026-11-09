@@ -206,9 +206,10 @@ a:hover {
   place-items: center;
   width: 2rem;
   height: 2rem;
-  font-size: 0.8rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
+  line-height: 1;
   text-decoration: none;
   color: #fff;
   background: linear-gradient(160deg, var(--btn-from), var(--btn-to));

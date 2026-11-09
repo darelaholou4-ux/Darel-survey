@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="CD monogram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="C-B monogram">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#3d5d7e" />
@@ -8,6 +8,6 @@
   <rect width="512" height="512" rx="112" fill="url(#bg)" />
   <circle cx="256" cy="256" r="150" fill="none" stroke="#e39a84" stroke-width="14" opacity=".85" />
   <text x="256" y="256" text-anchor="middle" dominant-baseline="central"
-        font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="150" font-weight="800"
-        letter-spacing="4" fill="#fffdfb">CD</text>
+        font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="118" font-weight="800"
+        letter-spacing="0" fill="#fffdfb">C-B</text>
 </svg>
