@@ -1,4 +1,25 @@
 /* ==========================================================================
+   Polices auto-hébergées (aucune requête vers un tiers)
+   Inter (variable, 100–900) pour le texte — Instrument Serif pour les titres.
+   Licences : SIL Open Font License 1.1 (voir assets/fonts/LICENCES.txt).
+   ========================================================================== */
+@font-face {
+  font-family: "InterVariable";
+  src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("assets/fonts/instrument-serif-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
    Base partagée : jetons de design, reset, barre de navigation, pied de page
    Commune à index.html, business-card.html et thanks.html
    ========================================================================== */
@@ -10,6 +31,7 @@
   --text: #1f2a37;
   --text-muted: #5d6b7b;
   --line: #dcd2c6;
+  --line-strong: #cfc0af;
   --brand: #33506e;
   --brand-strong: #24405c;
   --accent: #a85540;
@@ -25,7 +47,9 @@
   --radius-sm: 10px;
   --shadow: 0 1px 2px rgb(31 42 55 / 0.06), 0 18px 40px -24px rgb(31 42 55 / 0.45);
   --shadow-lg: 0 2px 4px rgb(31 42 55 / 0.05), 0 30px 60px -30px rgb(31 42 55 / 0.55);
-  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font: "InterVariable", "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
   color-scheme: light dark;
 }
 
@@ -38,6 +62,7 @@
     --text: #eaf0f6;
     --text-muted: #a5b3c2;
     --line: #334252;
+    --line-strong: #42566b;
     --brand: #8fb4d8;
     --brand-strong: #b6d0ea;
     --accent: #e39a84;
@@ -60,6 +85,11 @@
   box-sizing: border-box;
 }
 
+/* L'attribut hidden doit toujours gagner face aux display des composants */
+[hidden] {
+  display: none !important;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
 }
@@ -68,6 +98,9 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text);
@@ -83,6 +116,16 @@ p,
 ul,
 figure {
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 ul {
@@ -320,6 +363,14 @@ a:hover {
 
 .site-footer a:hover {
   color: var(--brand);
+}
+
+.site-footer__legal {
+  margin-top: 0.45rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  opacity: 0.8;
 }
 
 /* ==========================================================================

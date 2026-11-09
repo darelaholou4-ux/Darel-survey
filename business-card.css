@@ -26,7 +26,7 @@ body {
 
 /* Bandeau décoratif en haut de la carte */
 .card-banner {
-  height: 5rem;
+  height: 4.5rem;
   margin: 0 calc(-1 * clamp(1.25rem, 5vw, 1.75rem)) 0;
   background: linear-gradient(135deg, var(--banner-from), var(--banner-to));
   box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--accent) 32%, transparent);
@@ -35,7 +35,7 @@ body {
 .card-header {
   display: grid;
   justify-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 
 /* Avatar ---------------------------------------------------------------- */
@@ -77,23 +77,26 @@ body {
 
 /* Identité -------------------------------------------------------------- */
 .full-name {
-  font-size: 1.35rem;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.65rem, 5vw, 1.9rem);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
   color: var(--brand);
 }
 
 .designation {
-  font-size: 0.9rem;
+  max-width: 17rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
 .company {
-  margin-top: 0.15rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  margin-top: 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -108,8 +111,9 @@ hr {
 /* Coordonnées ----------------------------------------------------------- */
 .contact-list {
   display: grid;
-  gap: 0.5rem;
-  font-size: 0.95rem;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  letter-spacing: -0.005em;
   overflow-wrap: anywhere;
 }
 
@@ -139,19 +143,32 @@ hr {
 /* Actions --------------------------------------------------------------- */
 .card-actions {
   display: grid;
-  gap: 0.5rem;
-  margin-top: 1.35rem;
+  gap: 0.55rem;
+  margin-top: 1.4rem;
+}
+
+.card-actions__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+/* Quand le partage natif n'est pas disponible, le bouton restant occupe la ligne */
+.card-actions__row:has(#share-card[hidden]) {
+  grid-template-columns: 1fr;
 }
 
 .card-actions .btn {
   width: 100%;
-  padding: 0.6rem 1rem;
-  font-size: 0.85rem;
+  padding: 0.62rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .toast {
-  margin-top: 0.6rem;
-  font-size: 0.8rem;
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--success);
   min-height: 1.2em;
@@ -176,12 +193,13 @@ hr {
 
 .social-list a {
   display: inline-block;
-  padding: 0.4rem 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 600;
+  padding: 0.42rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 550;
   text-decoration: none;
   color: var(--brand);
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
   border-radius: 999px;
   transition: color 150ms ease, background 150ms ease, border-color 150ms ease,
     transform 150ms ease;

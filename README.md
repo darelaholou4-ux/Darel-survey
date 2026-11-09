@@ -52,6 +52,9 @@ npm test             # structure, traductions, liens, syntaxe JS
 - liens `mailto:` / `tel:` / portfolio / réseaux avec icônes SVG intégrées.
 
 **Design et accessibilité**
+- typographie **auto-hébergée** : Inter (variable) pour le texte, Instrument Serif
+  pour les titres — deux fichiers `woff2` locaux, préchargés, licences OFL 1.1
+  dans `assets/fonts/LICENCES.txt` ;
 - jetons CSS (couleurs, rayons, ombres) et thème sombre automatique ;
 - mise en page fluide de 320 px à grand écran, cibles tactiles confortables ;
 - focus visible, lien d'évitement au clavier, contrastes AA vérifiés,
@@ -62,7 +65,8 @@ npm test             # structure, traductions, liens, syntaxe JS
   sombre.
 
 **Performance et partage**
-- aucune police, image ou script externe : tout est servi depuis le dépôt ;
+- aucune police, image ou script externe : tout est servi depuis le dépôt
+  (`base.css` + 2 polices ≈ 70 Ko au total) ;
 - illustration d'en-tête originale et locale (`assets/profil.jpg`) — remplaçable par
   n'importe quelle photo du même nom ;
 - favicon SVG, manifeste, `theme-color`, `robots.txt`, `sitemap.xml`,
@@ -86,7 +90,9 @@ npm test             # structure, traductions, liens, syntaxe JS
 ├── icon.svg              # favicon / icône PWA
 ├── site.webmanifest
 ├── assets/
+│   ├── profil.jpg        # illustration de la carte (remplaçable)
 │   ├── crusis-darel-aholou.vcf
+│   ├── fonts/            # Inter + Instrument Serif (woff2, OFL 1.1)
 │   └── preview-*.png     # aperçus (README + Open Graph)
 ├── tools/check.mjs       # vérifications statiques (npm test)
 └── .github/workflows/checks.yml
