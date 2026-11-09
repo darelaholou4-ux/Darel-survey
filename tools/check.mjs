@@ -173,6 +173,19 @@ for (const file of ["robots.txt", "sitemap.xml", "site.webmanifest", "icon.svg",
   if (!existsSync(join(root, file))) fail(`fichier attendu manquant → ${file}`);
 }
 
+const pagesWorkflow = ".github/workflows/pages.yml";
+if (!existsSync(join(root, pagesWorkflow))) {
+  fail(`workflow de déploiement manquant → ${pagesWorkflow} (Pages resterait figé)`);
+} else {
+  const workflow = read(pagesWorkflow);
+  for (const action of ["actions/configure-pages", "actions/upload-pages-artifact", "actions/deploy-pages"]) {
+    if (!workflow.includes(action)) fail(`${pagesWorkflow} : action manquante → ${action}`);
+  }
+  if (!/branches:\s*\[?"?main"?\]?/.test(workflow)) {
+    warn(`${pagesWorkflow} : le déclenchement sur main n'a pas été reconnu`);
+  }
+}
+
 try {
   JSON.parse(read("site.webmanifest"));
 } catch (error) {

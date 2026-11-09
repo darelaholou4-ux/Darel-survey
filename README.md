@@ -98,6 +98,21 @@ npm test             # structure, traductions, liens, syntaxe JS
 └── .github/workflows/checks.yml
 ```
 
+## Déploiement
+
+Le site est publié par GitHub Pages via **`.github/workflows/pages.yml`** :
+
+1. à chaque poussée sur `main`, le workflow rejoue `npm test` ;
+2. il ne copie dans l'artefact que les fichiers du site (pages, styles,
+   scripts, `assets/`, favicon, manifeste, `robots.txt`, `sitemap.xml`) ;
+3. il publie le tout avec `actions/deploy-pages`.
+
+Le dépôt doit garder **Settings → Pages → Source = « GitHub Actions »**.
+L'URL publique est <https://darelaholou4-ux.github.io/Darel-survey/>.
+
+> ⚠️ Sans ce workflow, une source Pages réglée sur « GitHub Actions » ne publie
+> rien : c'est la cause du site resté bloqué sur une version de février 2026.
+
 ## Notes
 
 - L'endpoint Formspree est `https://formspree.io/f/xojnnrro`. En cas de
