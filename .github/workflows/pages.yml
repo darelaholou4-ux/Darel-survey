@@ -1,0 +1,87 @@
+name: Deploy to GitHub Pages
+
+# Publie le site statique sur GitHub Pages à chaque poussée sur main.
+# Le dépôt est réglé sur « GitHub Actions » comme source Pages : sans ce
+# workflow, aucune mise à jour n'est publiée.
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un seul déploiement à la fois ; on laisse aller au bout celui en cours.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Préparer le site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Vérifier le contenu avant publication
+        run: npm test
+
+      - name: Configurer Pages
+        uses: actions/configure-pages@v5
+
+      - name: Rassembler uniquement les fichiers du site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          for file in \
+            index.html \
+            business-card.html \
+            thanks.html \
+            base.css \
+            survey.css \
+            business-card.css \
+            thanks.css \
+            i18n.js \
+            survey.js \
+            business-card.js \
+            icon.svg \
+            site.webmanifest \
+            robots.txt \
+            sitemap.xml \
+            .nojekyll
+          do
+            if [ ! -e "$file" ]; then
+              echo "Fichier attendu manquant : $file" >&2
+              exit 1
+            fi
+            cp "$file" _site/
+          done
+          cp -R assets _site/
+          echo "Fichiers publiés :"
+          find _site -type f | sort
+
+      - name: Empaqueter l'artefact Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Publier
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
