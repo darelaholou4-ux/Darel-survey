@@ -220,8 +220,6 @@ if (monograms.size === 1 && !new RegExp(`aria-label="${[...monograms][0]}[^"]*ho
 /* ------------------------------------------------------------------------ */
 const pagesPortfolio = [
   { fichier: "portfolio/index.html", feuille: "portfolio/style.css", canonical: true, donneesStructurees: true },
-  { fichier: "portfolio/variante-a.html", feuille: "portfolio/variante-a.css", canonical: false, donneesStructurees: false },
-  { fichier: "portfolio/variante-b.html", feuille: "portfolio/variante-b.css", canonical: false, donneesStructurees: false },
 ];
 
 for (const page of pagesPortfolio) {
@@ -265,8 +263,13 @@ for (const page of pagesPortfolio) {
     if (folioCss && !folioCss.includes(police)) fail(`${nom} : police non déclarée → ${police}`);
   }
 
-  const executables = [...folio.matchAll(/<script(?![^>]*type="application\/ld\+json")[^>]*>/g)];
-  if (executables.length) fail(`${nom} : aucun script exécutable n'est attendu`);
+  // Aucun script externe. Un petit script en ligne est toléré (révélation des aperçus).
+  const scripts = [...folio.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)]
+    .filter((m) => !/type="application\/ld\+json"/.test(m[1]));
+  for (const [, attributs, corps] of scripts) {
+    if (/\bsrc=/.test(attributs)) fail(`${nom} : script externe → ${attributs.trim()}`);
+    if (corps.length > 800) warn(`${nom} : script en ligne trop long (${corps.length} caractères)`);
+  }
 
   if (page.donneesStructurees) {
     try {

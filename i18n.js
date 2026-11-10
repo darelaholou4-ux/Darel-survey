@@ -23,7 +23,7 @@
       "nav.card": "Business card",
       "lang.label": "Language",
       "title.survey": "Survey · Darel isn't he amazing?",
-      "title.card": "Crusis Darel Aholou · Business card",
+      "title.card": "AHOLOU Crusis Darel · Business card",
       "title.thanks": "Thank you · Darel survey",
 
       /* Formulaire -------------------------------------------------------- */
@@ -109,7 +109,7 @@
       "nav.card": "Carte de visite",
       "lang.label": "Langue",
       "title.survey": "Sondage · Darel n'est-il pas incroyable ?",
-      "title.card": "Crusis Darel Aholou · Carte de visite",
+      "title.card": "AHOLOU Crusis Darel · Carte de visite",
       "title.thanks": "Merci · Sondage de Darel",
 
       /* Formulaire -------------------------------------------------------- */

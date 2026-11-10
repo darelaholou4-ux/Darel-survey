@@ -13,7 +13,7 @@ Le README de profil s'affiche en haut de <https://github.com/darelaholou4-ux> à
 ## Texte à coller
 
 ```markdown
-# Crusis Darel Aholou
+# AHOLOU Crusis Darel
 
 Créateur de sites web à Abomey-Calavi, Bénin. Je fais des pages rapides, lisibles sur un téléphone, avec un bouton WhatsApp pour prendre commande — pour des commerces qui n'ont pas encore de site.
 

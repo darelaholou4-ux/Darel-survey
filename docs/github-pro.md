@@ -6,7 +6,7 @@ Tout ce qui suit se fait dans le navigateur, en une demi-heure. Les textes sont 
 
 | Champ | Valeur |
 | --- | --- |
-| Name | `Crusis Darel Aholou` |
+| Name | `AHOLOU Crusis Darel` |
 | Bio | `Sites web pour les commerces au Bénin. Pages rapides, commande par WhatsApp.` |
 | URL | `https://darelaholou4-ux.github.io/Darel-survey/portfolio/` |
 | Company | `à mon compte` |

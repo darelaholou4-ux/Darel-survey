@@ -1,26 +1,26 @@
-# Portfolio — Crusis Darel Aholou
+# Portfolio — AHOLOU Crusis Darel
 
-Page d'accueil professionnelle, en français : travaux, méthode, tarifs en francs CFA et contact.
+Une seule page, en français : trois projets avec leur fenêtre d'aperçu, tarifs en francs CFA, engagements et contact.
 
-**En ligne :** <https://darelaholou4-ux.github.io/>
+**En ligne :** <https://darelaholou4-ux.github.io/Darel-survey/portfolio/>
 
 ## Ce qu'il y a dedans
 
 | Fichier | Rôle |
 | --- | --- |
 | `index.html` | La page, en HTML sémantique |
-| `style.css` | Mise en page, thème clair et sombre, styles d'impression |
+| `style.css` | Mise en page, deux teintes douces, thème clair et sombre, styles d'impression |
 | `assets/fonts/` | Inter et Instrument Serif, auto-hébergées (licence OFL) |
-| `assets/apercu-formulaire.webp` | Capture du formulaire Darel Survey |
 | `assets/apercu-lien.png` | Image d'aperçu pour les liens partagés (1200 × 630) |
 | `favicon.svg` | Monogramme C-B |
 
 ## Choix techniques
 
-- **Aucune dépendance** : ni bibliothèque, ni script. La page fonctionne sans JavaScript.
+- **Aucune dépendance** : ni bibliothèque, ni service externe. Un seul script en ligne, huit lignes, qui révèle les aperçus une fois les sites chargés ; sans lui, la page reste entière et lisible.
 - **Deux polices**, auto-hébergées et préchargées. Pas d'appel à un service de polices.
-- **Une colonne**, mesure de lecture de 42 rem, hauteur de ligne 1,65.
+- **Fenêtres d'aperçu** : trois mini-navigateurs. Le site s'affiche dedans s'il répond ; sinon la vignette colorée reste, pour éviter un cadre blanc.
 - **Thème sombre** automatique (`prefers-color-scheme`), sans bascule manuelle.
+- **Une colonne** de 46 rem, hauteur de ligne 1,65.
 - **Tableau des tarifs** qui devient une liste sur téléphone, sans défilement horizontal.
 - **Accessibilité** : lien d'évitement, contrastes vérifiés, `:focus-visible`, aucune violation axe-core sur quatre combinaisons (ordinateur/téléphone × clair/sombre).
 

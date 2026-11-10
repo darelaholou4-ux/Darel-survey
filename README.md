@@ -1,6 +1,6 @@
 # Darel-survey
 
-Site personnel de **Crusis Darel Aholou** : un questionnaire, une carte de visite
+Site personnel de **AHOLOU Crusis Darel** : un questionnaire, une carte de visite
 numérique, une page de remerciement et un **portfolio**. HTML, CSS et JavaScript
 natifs — aucune dépendance, aucun build, aucun tracker.
 
