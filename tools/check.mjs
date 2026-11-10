@@ -218,48 +218,62 @@ if (monograms.size === 1 && !new RegExp(`aria-label="${[...monograms][0]}[^"]*ho
 /* ------------------------------------------------------------------------ */
 /* 8. Portfolio (servi sous /portfolio/)                                     */
 /* ------------------------------------------------------------------------ */
-const portfolioFile = "portfolio/index.html";
-if (!existsSync(join(root, portfolioFile))) {
-  fail(`portfolio manquant → ${portfolioFile}`);
-} else {
-  const folio = read(portfolioFile);
-  const folioCss = read("portfolio/style.css");
+const pagesPortfolio = [
+  { fichier: "portfolio/index.html", feuille: "portfolio/style.css", canonical: true, donneesStructurees: true },
+  { fichier: "portfolio/variante-a.html", feuille: "portfolio/variante-a.css", canonical: false, donneesStructurees: false },
+  { fichier: "portfolio/variante-b.html", feuille: "portfolio/variante-b.css", canonical: false, donneesStructurees: false },
+];
 
-  if (!/^<!DOCTYPE html>/i.test(folio.trimStart())) fail("portfolio : DOCTYPE manquant");
-  if (!/<html[^>]+lang="fr"/i.test(folio)) fail("portfolio : langue française attendue");
-  if ((folio.match(/<h1[\s>]/g) || []).length !== 1) fail("portfolio : un seul <h1> attendu");
-  if (!/<meta[^>]+name="description"/.test(folio)) fail("portfolio : meta description manquante");
-  if (!/rel="canonical"/.test(folio)) warn("portfolio : lien canonical absent");
+for (const page of pagesPortfolio) {
+  const nom = page.fichier.replace("portfolio/", "");
+
+  if (!existsSync(join(root, page.fichier))) {
+    fail(`portfolio manquant → ${page.fichier}`);
+    continue;
+  }
+
+  const folio = read(page.fichier);
+  const folioCss = existsSync(join(root, page.feuille)) ? read(page.feuille) : "";
+
+  if (!folioCss) fail(`${nom} : feuille de style absente → ${page.feuille}`);
+  if (!/^<!DOCTYPE html>/i.test(folio.trimStart())) fail(`${nom} : DOCTYPE manquant`);
+  if (!/<html[^>]+lang="fr"/i.test(folio)) fail(`${nom} : langue française attendue`);
+  if ((folio.match(/<h1[\s>]/g) || []).length !== 1) fail(`${nom} : un seul <h1> attendu`);
+  if (!/<meta[^>]+name="description"/.test(folio)) fail(`${nom} : meta description manquante`);
+  if (page.canonical && !/rel="canonical"/.test(folio)) warn(`${nom} : lien canonical absent`);
 
   // Aucune ressource chargée depuis un autre domaine (les liens sortants, si).
-  const ressourcesChargees = [
+  const ressources = [
     ...folio.matchAll(/<(?:img|script)[^>]+src="([^"]+)"/g),
     // un <link> ne charge une ressource que pour ces relations-là
     ...[...folio.matchAll(/<link[^>]*>/g)]
       .filter((m) => /rel="(stylesheet|preload|icon|apple-touch-icon|manifest)"/.test(m[0]))
       .map((m) => [null, (m[0].match(/href="([^"]+)"/) || [])[1]]),
     ...folioCss.matchAll(/url\(["']?([^"')]+)["']?\)/g),
-  ];
-  const ressources = ressourcesChargees.map((m) => m[1]).filter(Boolean);
+  ]
+    .map((m) => m[1])
+    .filter(Boolean);
 
   for (const url of ressources) {
-    if (/^(https?:)?\/\//.test(url)) fail(`portfolio : ressource externe → ${url}`);
+    if (/^(https?:)?\/\//.test(url)) fail(`${nom} : ressource externe → ${url}`);
     else if (!url.startsWith("data:") && !existsSync(join(root, "portfolio", url.replace(/^\.\//, "")))) {
-      fail(`portfolio : fichier introuvable → ${url}`);
+      fail(`${nom} : fichier introuvable → ${url}`);
     }
   }
 
   for (const police of ["inter-latin-wght-normal.woff2", "instrument-serif-latin-400-normal.woff2"]) {
-    if (!folioCss.includes(police)) fail(`portfolio : police non déclarée → ${police}`);
+    if (folioCss && !folioCss.includes(police)) fail(`${nom} : police non déclarée → ${police}`);
   }
 
   const executables = [...folio.matchAll(/<script(?![^>]*type="application\/ld\+json")[^>]*>/g)];
-  if (executables.length) fail("portfolio : aucun script exécutable n'est attendu");
+  if (executables.length) fail(`${nom} : aucun script exécutable n'est attendu`);
 
-  try {
-    JSON.parse(folio.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
-  } catch {
-    warn("portfolio : données structurées illisibles");
+  if (page.donneesStructurees) {
+    try {
+      JSON.parse(folio.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    } catch {
+      warn(`${nom} : données structurées illisibles`);
+    }
   }
 }
 
