@@ -92,7 +92,7 @@
       try {
         await navigator.share({
           title: document.title,
-          text: "Crusis Darel Aholou — business card",
+          text: "AHOLOU Crusis Darel — business card",
           url: window.location.href,
         });
       } catch (error) {
