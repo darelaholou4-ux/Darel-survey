@@ -1,8 +1,18 @@
 # Darel-survey
 
 Site personnel de **Crusis Darel Aholou** : un questionnaire, une carte de visite
-numérique et une page de remerciement. HTML, CSS et JavaScript natifs — aucune
-dépendance, aucun build, aucun tracker.
+numérique, une page de remerciement et un **portfolio**. HTML, CSS et JavaScript
+natifs — aucune dépendance, aucun build, aucun tracker.
+
+| Quoi | Adresse |
+| --- | --- |
+| Sondage | <https://darelaholou4-ux.github.io/Darel-survey/> |
+| Carte de visite | <https://darelaholou4-ux.github.io/Darel-survey/business-card.html> |
+| Portfolio | <https://darelaholou4-ux.github.io/Darel-survey/portfolio/> |
+
+Le dossier `docs/` contient de quoi remettre le compte GitHub à niveau :
+README de profil (`docs/profil-github.md`) et réglages à coller
+(`docs/github-pro.md`).
 
 ![Aperçu du formulaire](assets/preview-survey.png)
 ![Aperçu de la carte de visite](assets/preview-card.png)
@@ -16,6 +26,7 @@ dépendance, aucun build, aucun tracker.
 | Remerciement | `thanks.html` · `thanks.css` | Page affichée après l'envoi (`_next` de Formspree). |
 | Styles partagés | `base.css` | Jetons de design, barre de navigation, boutons, pied de page, thème sombre. |
 | Traductions | `i18n.js` | Bascule anglais / français sans dépendance. |
+| Portfolio | `portfolio/index.html` · `portfolio/style.css` | Page professionnelle : travaux, méthode, tarifs en FCFA, contact. Aucun script, deux polices auto-hébergées, thème sombre automatique. |
 
 ## Démarrage
 
@@ -105,7 +116,7 @@ Le site est publié par GitHub Pages via **`.github/workflows/pages.yml`** :
 1. à chaque poussée sur `main`, le workflow rejoue `npm test` ;
 2. il ne copie dans l'artefact que les fichiers du site (pages, styles,
    scripts, `assets/`, favicon, manifeste, `robots.txt`, `sitemap.xml`) ;
-3. il publie le tout avec `actions/deploy-pages`.
+3. il publie le tout avec `actions/deploy-pages`, portfolio compris.
 
 Le dépôt doit garder **Settings → Pages → Source = « GitHub Actions »**.
 L'URL publique est <https://darelaholou4-ux.github.io/Darel-survey/>.

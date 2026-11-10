@@ -1,0 +1,458 @@
+/* Feuille de style du portfolio — écrite à la main, sans bibliothèque.
+   Deux familles de caractères, une colonne, beaucoup d'air. */
+
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("assets/fonts/instrument-serif-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+  --papier: #faf7f2;
+  --encre: #1a1e25;
+  --encre-douce: #5b616c;
+  --filet: #e3dad0;
+  --accent: #a85540;
+  --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papier: #12161c;
+    --encre: #e6e2db;
+    --encre-douce: #9ba1ac;
+    --filet: #2a313c;
+    --accent: #e39a84;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 5rem;
+  max-width: 42rem;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--papier);
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Lien d'évitement, visible seulement au clavier. */
+.saut {
+  position: absolute;
+  left: -9999px;
+}
+
+.saut:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.6rem 1rem;
+  background: var(--encre);
+  color: var(--papier);
+  text-decoration: none;
+}
+
+/* En-tête */
+.entete {
+  padding-bottom: 0.5rem;
+}
+
+.signature {
+  margin: 0 0 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--encre-douce);
+}
+
+h1,
+h2,
+h3 {
+  scroll-margin-top: 2rem;
+}
+
+h1 {
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6.2vw, 2.85rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+.chapeau {
+  margin: 1.25rem 0 0;
+  max-width: 36rem;
+  color: var(--encre-douce);
+  text-wrap: pretty;
+}
+
+.sommaire {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  font-size: 0.92rem;
+}
+
+.sommaire a {
+  color: var(--encre);
+  text-decoration: none;
+  border-bottom: 1px solid var(--filet);
+  padding-bottom: 1px;
+}
+
+.sommaire a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Sections */
+section {
+  margin-top: 4rem;
+}
+
+h2 {
+  margin: 0 0 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--filet);
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.projet p,
+.etapes li {
+  text-wrap: pretty;
+}
+
+.projet {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--filet);
+  text-wrap: pretty;
+}
+
+.projet:first-of-type {
+  border-top: 1px solid var(--filet);
+}
+
+.projet p {
+  margin: 0.55rem 0 0;
+}
+
+.meta {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--encre-douce);
+}
+
+.liens {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.94rem;
+}
+
+/* Figure */
+figure {
+  margin: 2rem 0 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--filet);
+  border-radius: 2px;
+}
+
+figcaption {
+  margin-top: 0.65rem;
+  font-size: 0.84rem;
+  color: var(--encre-douce);
+}
+
+/* Méthode */
+.etapes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: etape;
+}
+
+.etapes li {
+  position: relative;
+  padding-left: 2.25rem;
+  margin-bottom: 1.35rem;
+  text-wrap: pretty;
+}
+
+.etapes li::before {
+  counter-increment: etape;
+  content: counter(etape) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.etapes strong {
+  font-weight: 600;
+}
+
+/* Tarifs */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.96rem;
+}
+
+caption {
+  text-align: left;
+}
+
+th,
+td {
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--filet);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-weight: 500;
+  color: var(--encre);
+}
+
+thead th {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--encre-douce);
+  border-bottom-color: var(--encre-douce);
+}
+
+.prix,
+.delai {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.prix {
+  font-weight: 600;
+}
+
+.delai {
+  color: var(--encre-douce);
+  font-size: 0.9rem;
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--encre-douce);
+  text-wrap: pretty;
+}
+
+/* Contact */
+.bouton {
+  display: inline-block;
+  margin: 1.5rem 0 0.5rem;
+  padding: 0.78rem 1.35rem;
+  background: var(--encre);
+  color: var(--papier);
+  font-size: 0.98rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.bouton:hover {
+  background: var(--accent);
+  color: var(--papier);
+}
+
+.coordonnees {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.4rem 1rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.96rem;
+}
+
+.coordonnees dt {
+  color: var(--encre-douce);
+}
+
+.coordonnees dd {
+  margin: 0;
+}
+
+/* Pied */
+.pied {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--filet);
+  font-size: 0.88rem;
+  color: var(--encre-douce);
+}
+
+.pied p {
+  margin: 0 0 0.5rem;
+}
+
+.colophon {
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+/* Utilitaires */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Petits écrans : le tableau devient une liste. */
+@media (max-width: 34rem) {
+  body {
+    padding: 3rem 1.25rem 3.5rem;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--filet);
+  }
+
+  th,
+  td {
+    padding: 0;
+    border: 0;
+  }
+
+  .prix {
+    margin-top: 0.25rem;
+    text-align: left;
+  }
+
+  .delai {
+    text-align: left;
+    font-size: 0.85rem;
+  }
+
+  .coordonnees {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  .coordonnees dd {
+    margin-bottom: 0.6rem;
+  }
+}
+
+/* Impression : du noir sur du blanc, sans décoration. */
+@media print {
+  :root {
+    --papier: #fff;
+    --encre: #000;
+    --encre-douce: #333;
+    --filet: #bbb;
+    --accent: #000;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+    font-size: 11pt;
+  }
+
+  .sommaire,
+  .bouton,
+  .saut {
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  section {
+    break-inside: avoid;
+  }
+}

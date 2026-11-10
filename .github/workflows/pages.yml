@@ -66,6 +66,7 @@ jobs:
             cp "$file" _site/
           done
           cp -R assets _site/
+          cp -R portfolio _site/
           echo "Fichiers publiés :"
           find _site -type f | sort
 
