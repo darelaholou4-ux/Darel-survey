@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UAC Mini Games — CRUS-BOSS</title>
+<meta name="description" content="Des mini-jeux pour étudiants, avec connexion et classement conservé d’une visite à l’autre.">
+<link rel="canonical" href="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/uac-minigames.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_BJ">
+<meta property="og:url" content="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/uac-minigames.html">
+<meta property="og:title" content="UAC Mini Games — CRUS-BOSS">
+<meta property="og:description" content="Des mini-jeux pour étudiants, avec connexion et classement conservé d’une visite à l’autre.">
+<meta property="og:image" content="https://darelaholou4-ux.github.io/Darel-survey/portfolio/assets/apercu-lien.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141a22" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="saut" href="#contenu">Aller au contenu</a>
+
+<header class="bandeau">
+  <a class="nom" href="../index.html">AHOLOU Crusis Darel</a>
+  <p class="etat"><span class="point" aria-hidden="true"></span>Deux places en décembre</p>
+  <a class="mini-cta" href="https://wa.me/2290195909112?text=Bonjour%20Darel%2C%20je%20vous%20%C3%A9cris%20au%20sujet%20d%27un%20site">WhatsApp</a>
+</header>
+
+<main id="contenu">
+
+  <p class="fil"><a href="../index.html#travaux">Tous les projets</a></p>
+
+  <header class="entete-projet">
+    <p class="sur-titre">04 · Jeu concours</p>
+    <h1>UAC Mini Games</h1>
+    <p class="chapeau">Un jeu-concours étudiant : des comptes, des parties, un classement qui survit au rafraîchissement de la page.</p>
+    <p class="etiquettes"><span class="etiquette">Next.js</span><span class="etiquette">Firebase</span></p>
+  </header>
+
+  <figure class="fenetre fenetre--grande">
+    <div class="fenetre__barre" aria-hidden="true">
+      <span class="fenetre__points"><i></i><i></i><i></i></span>
+      <span class="fenetre__url">uac-minigames.vercel.app/</span>
+    </div>
+    <div class="fenetre__vue">
+      <div class="fenetre__repli fenetre__repli--chaud">
+        <p class="fenetre__marque">UAC Mini Games</p>
+        <p class="fenetre__note">Aperçu du site</p>
+        <a href="https://uac-minigames.vercel.app/">Voir le jeu</a>
+      </div>
+      <iframe class="fenetre__cadre" src="https://uac-minigames.vercel.app/" title="Aperçu : UAC Mini Games" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+    </div>
+  </figure>
+
+  <section class="fiche">
+    <h2>Le point de départ</h2>
+    <p>Un concours sans mémoire ne tient pas. Il fallait identifier les joueurs, garder les scores côté serveur et offrir un écran qui se manipule au pouce, entre deux cours.</p>
+  </section>
+
+  <section class="fiche">
+    <h2>Ce que j’ai fait</h2>
+    <ul class="points">
+        <li>Connexion des joueurs, sans formulaire interminable.</li>
+        <li>Scores enregistrés dans Firebase : le classement ne se perd pas.</li>
+        <li>Écran pensé d’abord pour le téléphone.</li>
+    </ul>
+  </section>
+
+  <section class="fiche">
+    <h2>Technique</h2>
+    <dl class="details">
+      <dt>Écriture</dt>
+      <dd>Next.js</dd>
+      <dt>Données et comptes</dt>
+      <dd>Firebase</dd>
+      <dt>Hébergement</dt>
+      <dd>Vercel</dd>
+    </dl>
+  </section>
+
+  <p class="actions"><a class="bouton" href="https://uac-minigames.vercel.app/">Voir le jeu</a></p>
+
+  <nav class="pagination" aria-label="Autres projets">
+    <a class="pagination__lien" href="/projets/whatsapp-analyzer.html"><span class="pagination__sens">Projet précédent</span>WhatsApp Analyzer</a>
+    <a class="pagination__lien pagination__lien--droite" href="/projets/hilary.html"><span class="pagination__sens">Projet suivant</span>Hilary</a>
+  </nav>
+
+  <section class="relance">
+    <h2>Un projet dans le même esprit ?</h2>
+    <p class="chapeau">Dites-moi ce que vous vendez et ce que vos clients demandent au téléphone. Je réponds avec un prix et une date.</p>
+    <p class="actions"><a class="bouton" href="https://wa.me/2290195909112?text=Bonjour%20Darel%2C%20je%20vous%20%C3%A9cris%20au%20sujet%20d%27un%20site">Écrire sur WhatsApp</a> <a class="lien-discret" href="../index.html#tarifs">Voir les tarifs</a></p>
+  </section>
+
+</main>
+
+<footer class="pied">
+  <p>CRUS-BOSS · AHOLOU Crusis Darel · Abomey-Calavi, Bénin · 2026</p>
+</footer>
+
+<script>
+  document.querySelectorAll(".fenetre__cadre").forEach(function (cadre) {
+    fetch(cadre.src, { mode: "no-cors", cache: "no-store" })
+      .then(function () { cadre.parentElement.classList.add("charge"); })
+      .catch(function () { cadre.remove(); });
+  });
+</script>
+</body>
+</html>

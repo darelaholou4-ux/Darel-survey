@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hilary — CRUS-BOSS</title>
+<meta name="description" content="Une page à parcourir comme une exploration : quatre étapes à débloquer, des cartes à retourner.">
+<link rel="canonical" href="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/hilary.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_BJ">
+<meta property="og:url" content="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/hilary.html">
+<meta property="og:title" content="Hilary — CRUS-BOSS">
+<meta property="og:description" content="Une page à parcourir comme une exploration : quatre étapes à débloquer, des cartes à retourner.">
+<meta property="og:image" content="https://darelaholou4-ux.github.io/Darel-survey/portfolio/assets/apercu-lien.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141a22" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="saut" href="#contenu">Aller au contenu</a>
+
+<header class="bandeau">
+  <a class="nom" href="../index.html">AHOLOU Crusis Darel</a>
+  <p class="etat"><span class="point" aria-hidden="true"></span>Deux places en décembre</p>
+  <a class="mini-cta" href="https://wa.me/2290195909112?text=Bonjour%20Darel%2C%20je%20vous%20%C3%A9cris%20au%20sujet%20d%27un%20site">WhatsApp</a>
+</header>
+
+<main id="contenu">
+
+  <p class="fil"><a href="../index.html#travaux">Tous les projets</a></p>
+
+  <header class="entete-projet">
+    <p class="sur-titre">05 · Projet personnel</p>
+    <h1>Hilary</h1>
+    <p class="chapeau">Une page qu’on ne lit pas d’un seul coup : il faut avancer, cliquer, débloquer. Faite pour montrer ce que le CSS et le JavaScript peuvent faire sans bibliothèque.</p>
+    <p class="etiquettes"><span class="etiquette">CSS</span><span class="etiquette">JavaScript</span></p>
+  </header>
+
+  <figure class="fenetre fenetre--grande">
+    <div class="fenetre__barre" aria-hidden="true">
+      <span class="fenetre__points"><i></i><i></i><i></i></span>
+      <span class="fenetre__url">hilary-site.vercel.app/</span>
+    </div>
+    <div class="fenetre__vue">
+      <div class="fenetre__repli fenetre__repli--chaud">
+        <p class="fenetre__marque">Hilary</p>
+        <p class="fenetre__note">Aperçu du site</p>
+        <a href="https://hilary-site.vercel.app/">Voir la page</a>
+      </div>
+      <iframe class="fenetre__cadre" src="https://hilary-site.vercel.app/" title="Aperçu : Hilary" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+    </div>
+  </figure>
+
+  <section class="fiche">
+    <h2>Le point de départ</h2>
+    <p>L’envie de sortir de la page qui défile sagement. Le principe : quatre étapes, chacune fermée jusqu’à ce qu’on la mérite, avec des indices plutôt que des explications.</p>
+  </section>
+
+  <section class="fiche">
+    <h2>Ce que j’ai fait</h2>
+    <ul class="points">
+        <li>Quatre étapes à débloquer, avec un compteur de progression.</li>
+        <li>Des cartes qu’on retourne pour révéler un indice.</li>
+        <li>Des interactions au survol à la souris et au toucher sur téléphone.</li>
+        <li>Aucune bibliothèque d’animation : tout tient dans le CSS et quelques lignes de JavaScript.</li>
+    </ul>
+  </section>
+
+  <section class="fiche">
+    <h2>Technique</h2>
+    <dl class="details">
+      <dt>Écriture</dt>
+      <dd>CSS et JavaScript</dd>
+      <dt>Bibliothèques</dt>
+      <dd>aucune</dd>
+      <dt>Hébergement</dt>
+      <dd>Vercel</dd>
+    </dl>
+  </section>
+
+  <p class="actions"><a class="bouton" href="https://hilary-site.vercel.app/">Voir la page</a></p>
+
+  <nav class="pagination" aria-label="Autres projets">
+    <a class="pagination__lien" href="/projets/uac-minigames.html"><span class="pagination__sens">Projet précédent</span>UAC Mini Games</a>
+    <span></span>
+  </nav>
+
+  <section class="relance">
+    <h2>Un projet dans le même esprit ?</h2>
+    <p class="chapeau">Dites-moi ce que vous vendez et ce que vos clients demandent au téléphone. Je réponds avec un prix et une date.</p>
+    <p class="actions"><a class="bouton" href="https://wa.me/2290195909112?text=Bonjour%20Darel%2C%20je%20vous%20%C3%A9cris%20au%20sujet%20d%27un%20site">Écrire sur WhatsApp</a> <a class="lien-discret" href="../index.html#tarifs">Voir les tarifs</a></p>
+  </section>
+
+</main>
+
+<footer class="pied">
+  <p>CRUS-BOSS · AHOLOU Crusis Darel · Abomey-Calavi, Bénin · 2026</p>
+</footer>
+
+<script>
+  document.querySelectorAll(".fenetre__cadre").forEach(function (cadre) {
+    fetch(cadre.src, { mode: "no-cors", cache: "no-store" })
+      .then(function () { cadre.parentElement.classList.add("charge"); })
+      .catch(function () { cadre.remove(); });
+  });
+</script>
+</body>
+</html>

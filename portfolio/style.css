@@ -123,7 +123,16 @@ a:hover { color: var(--accent); }
   border-bottom: 1px solid var(--filet);
 }
 
-.nom { margin: 0; font-size: 0.92rem; font-weight: 600; letter-spacing: 0.01em; }
+.nom {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.nom:hover { color: var(--accent-fonce); }
 
 .etat {
   display: flex;
@@ -180,6 +189,7 @@ h1 {
 
 .chapeau {
   margin: 0 0 1.6rem;
+  text-wrap: pretty;
   max-width: 32rem;
   font-size: 1.03rem;
   color: var(--encre-douce);
@@ -269,18 +279,6 @@ h3 {
 
 /* Travaux */
 
-.projet {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  gap: 2.5rem;
-  align-items: center;
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--filet);
-}
-
-.projet__texte p { margin: 0 0 0.9rem; }
-.projet--inverse .projet__texte { order: 2; }
-.projet--inverse .fenetre { order: 1; }
 
 .etiquettes {
   display: flex;
@@ -299,14 +297,6 @@ h3 {
 }
 
 .etiquette + .etiquette { background: var(--teinte-froide); color: var(--encre-douce); }
-
-.liens {
-  display: flex;
-  gap: 1.1rem;
-  font-size: 0.92rem;
-}
-
-.liens a { text-decoration: underline; }
 
 /* Fenêtre de navigateur */
 
@@ -419,6 +409,189 @@ h3 {
 
 @media (prefers-color-scheme: dark) {
   .fenetre__repli a { color: var(--accent-fonce); }
+}
+
+
+/* Liste des projets (accueil) */
+
+.projets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--filet);
+}
+
+.projets li { border-bottom: 1px solid var(--filet); }
+
+.projets__lien {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  color: var(--encre);
+  text-decoration: none;
+  transition: padding-left 0.18s ease, color 0.18s ease;
+}
+
+.projets__lien:hover { padding-left: 0.45rem; color: var(--encre); }
+
+@media (prefers-reduced-motion: reduce) {
+  .projets__lien { transition: none; }
+  .projets__lien:hover { padding-left: 0; }
+}
+
+.projets__numero {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--accent-fonce);
+}
+
+.projets__corps { display: block; }
+
+.projets__titre {
+  display: block;
+  font-size: 1.22rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.projets__note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.92rem;
+  color: var(--encre-douce);
+}
+
+.projets__fleche {
+  align-self: center;
+  font-size: 1.05rem;
+  color: var(--accent-fonce);
+}
+
+/* Page d'un projet */
+
+.fil { margin: 2.5rem 0 0; font-size: 0.88rem; }
+.fil a { color: var(--encre-douce); text-decoration: none; }
+.fil a:hover { color: var(--accent-fonce); text-decoration: underline; }
+.fil a::before { content: "← "; }
+
+.entete-projet { padding: 1.6rem 0 2.2rem; }
+.entete-projet .chapeau { max-width: 38rem; margin-bottom: 1.2rem; }
+
+.fenetre--grande .fenetre__vue { aspect-ratio: 16 / 9; }
+
+.fiche {
+  margin-top: 3.25rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--filet);
+  max-width: 38rem;
+}
+
+.fiche h2 {
+  margin-bottom: 0.9rem;
+  font-size: 1.45rem;
+}
+
+.fiche p { margin: 0; text-wrap: pretty; }
+
+.points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.35rem;
+  margin-bottom: 0.65rem;
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--accent-fonce);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  gap: 0.5rem 1rem;
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+.details dt { color: var(--encre-douce); }
+.details dd { margin: 0; }
+
+main > .actions { margin-top: 2.6rem; }
+
+.pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--filet);
+}
+
+.pagination__lien {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.pagination__lien:hover { color: var(--accent-fonce); }
+
+.pagination__lien--droite { text-align: right; }
+
+.pagination__sens {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--encre-douce);
+}
+
+.relance {
+  margin-top: 4.5rem;
+  padding: 2.4rem 2rem;
+  border-radius: 6px;
+  background: var(--teinte-chaude);
+}
+
+.relance h2 { margin-bottom: 0.8rem; font-size: 1.55rem; }
+.relance .chapeau { max-width: 34rem; }
+
+@media (max-width: 34rem) {
+  .projets__lien {
+    grid-template-columns: 1.9rem minmax(0, 1fr) auto;
+    gap: 0.7rem;
+    padding: 1.15rem 0;
+  }
+
+  .projets__titre { font-size: 1.08rem; }
+
+  .entete-projet { padding-top: 1rem; }
+  .fenetre--grande .fenetre__vue { aspect-ratio: 4 / 3; }
+
+  .details { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+  .details dd { margin-bottom: 0.6rem; }
+
+  main > .actions { margin-top: 2.6rem; }
+
+.pagination { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
+  .pagination__lien--droite { text-align: left; }
+
+  .relance { padding: 1.75rem 1.25rem; }
 }
 
 /* Tarifs */
@@ -540,14 +713,6 @@ tbody th { font-weight: 400; padding-right: 1rem; }
 
   section { margin-top: 4rem; }
 
-  .projet {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-    padding: 2rem 0;
-  }
-
-  .projet--inverse .projet__texte,
-  .projet--inverse .fenetre { order: initial; }
 
   .prix { margin-inline: calc(50% - 50vw); padding: 2.75rem 0; }
   .prix__interieur { padding: 0 1.25rem; }
