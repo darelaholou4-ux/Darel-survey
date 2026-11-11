@@ -89,7 +89,7 @@
 
   <nav class="pagination" aria-label="Autres projets">
     <span></span>
-    <a class="pagination__lien pagination__lien--droite" href="/projets/darel-survey.html"><span class="pagination__sens">Projet suivant</span>Darel Survey</a>
+    <a class="pagination__lien pagination__lien--droite" href="darel-survey.html"><span class="pagination__sens">Projet suivant</span>Darel Survey</a>
   </nav>
 
   <section class="relance">
@@ -107,7 +107,7 @@
 
 <script>
   document.querySelectorAll(".fenetre__cadre").forEach(function (cadre) {
-    fetch(cadre.src, { mode: "no-cors", cache: "no-store" })
+    fetch(cadre.src, { method: "HEAD", mode: "no-cors", cache: "no-store" })
       .then(function () { cadre.parentElement.classList.add("charge"); })
       .catch(function () { cadre.remove(); });
   });

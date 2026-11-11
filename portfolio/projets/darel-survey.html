@@ -89,8 +89,8 @@
   <p class="actions"><a class="bouton" href="https://darelaholou4-ux.github.io/Darel-survey/">Voir le site</a> <a class="lien-discret" href="https://github.com/darelaholou4-ux/Darel-survey">Lire le code</a></p>
 
   <nav class="pagination" aria-label="Autres projets">
-    <a class="pagination__lien" href="/projets/lemessia-triomphe.html"><span class="pagination__sens">Projet précédent</span>Le Messia Triomphe</a>
-    <a class="pagination__lien pagination__lien--droite" href="/projets/whatsapp-analyzer.html"><span class="pagination__sens">Projet suivant</span>WhatsApp Analyzer</a>
+    <a class="pagination__lien" href="lemessia-triomphe.html"><span class="pagination__sens">Projet précédent</span>Le Messia Triomphe</a>
+    <a class="pagination__lien pagination__lien--droite" href="whatsapp-analyzer.html"><span class="pagination__sens">Projet suivant</span>WhatsApp Analyzer</a>
   </nav>
 
   <section class="relance">
@@ -108,7 +108,7 @@
 
 <script>
   document.querySelectorAll(".fenetre__cadre").forEach(function (cadre) {
-    fetch(cadre.src, { mode: "no-cors", cache: "no-store" })
+    fetch(cadre.src, { method: "HEAD", mode: "no-cors", cache: "no-store" })
       .then(function () { cadre.parentElement.classList.add("charge"); })
       .catch(function () { cadre.remove(); });
   });

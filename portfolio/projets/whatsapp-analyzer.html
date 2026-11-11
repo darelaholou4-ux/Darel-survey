@@ -86,8 +86,8 @@
   <p class="actions"><a class="bouton" href="https://whatsapp-analyzer-mu.vercel.app/">Voir l’outil</a> <a class="lien-discret" href="https://github.com/darelaholou4-ux/whatsapp-analyzer">Lire le code</a></p>
 
   <nav class="pagination" aria-label="Autres projets">
-    <a class="pagination__lien" href="/projets/darel-survey.html"><span class="pagination__sens">Projet précédent</span>Darel Survey</a>
-    <a class="pagination__lien pagination__lien--droite" href="/projets/uac-minigames.html"><span class="pagination__sens">Projet suivant</span>UAC Mini Games</a>
+    <a class="pagination__lien" href="darel-survey.html"><span class="pagination__sens">Projet précédent</span>Darel Survey</a>
+    <a class="pagination__lien pagination__lien--droite" href="uac-minigames.html"><span class="pagination__sens">Projet suivant</span>UAC Mini Games</a>
   </nav>
 
   <section class="relance">
@@ -105,7 +105,7 @@
 
 <script>
   document.querySelectorAll(".fenetre__cadre").forEach(function (cadre) {
-    fetch(cadre.src, { mode: "no-cors", cache: "no-store" })
+    fetch(cadre.src, { method: "HEAD", mode: "no-cors", cache: "no-store" })
       .then(function () { cadre.parentElement.classList.add("charge"); })
       .catch(function () { cadre.remove(); });
   });

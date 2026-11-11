@@ -37,7 +37,7 @@
   <header class="entete-projet">
     <p class="sur-titre">05 · Projet personnel</p>
     <h1>Hilary</h1>
-    <p class="accroche">Une page qu’on ne lit pas d’un seul coup : il faut avancer, cliquer, débloquer. Faite pour montrer ce que le CSS et le JavaScript peuvent faire sans bibliothèque.</p>
+    <p class="accroche">Une page qu’on ne lit pas d’un seul coup : il faut avancer, cliquer, débloquer. Un exercice de style fait pour montrer ce que le CSS et le JavaScript font tout seuls, sans bibliothèque.</p>
     <p class="etiquettes"><span class="etiquette">CSS</span><span class="etiquette">JavaScript</span></p>
   </header>
 
@@ -68,7 +68,20 @@
         <li>Des cartes qu’on retourne pour révéler un indice.</li>
         <li>Des interactions au survol à la souris et au toucher sur téléphone.</li>
         <li>Aucune bibliothèque d’animation : tout tient dans le CSS et quelques lignes de JavaScript.</li>
+        <li>Une progression qui se garde d’une visite à l’autre, pour ne pas recommencer à zéro.</li>
     </ul>
+  </section>
+
+
+  <section class="fiche">
+    <h2>Ce qui a été difficile</h2>
+    <p>L’ordre, surtout. Une étape fermée doit donner envie sans donner la réponse : trop d’indices et il n’y a plus rien à trouver, pas assez et on referme l’onglet. Chaque étape a donc été écrite deux fois — une fois pour la personne pressée, une fois pour celle qui cherche vraiment.</p>
+    <p>Le tactile aussi. Un effet de survol qui ne se déclenche pas au doigt transforme la page en impasse : chaque interaction a une version au toucher, testée sur un petit écran.</p>
+  </section>
+
+  <section class="fiche">
+    <h2>Ce que je ferais autrement</h2>
+    <p>Je mettrais un bouton « passer » visible dès la deuxième étape. Forcer la découverte est amusant quand on est curieux, agaçant quand on est simplement venu voir le travail.</p>
   </section>
 
   <section class="fiche">
@@ -80,13 +93,15 @@
       <dd>aucune</dd>
       <dt>Hébergement</dt>
       <dd>Vercel</dd>
+      <dt>Mon rôle</dt>
+      <dd>conception, code, mise en ligne</dd>
     </dl>
   </section>
 
   <p class="actions"><a class="bouton" href="https://hilary-site.vercel.app/">Voir la page</a></p>
 
   <nav class="pagination" aria-label="Autres projets">
-    <a class="pagination__lien" href="/projets/uac-minigames.html"><span class="pagination__sens">Projet précédent</span>UAC Mini Games</a>
+    <a class="pagination__lien" href="uac-minigames.html"><span class="pagination__sens">Projet précédent</span>UAC Mini Games</a>
     <span></span>
   </nav>
 
@@ -105,7 +120,7 @@
 
 <script>
   document.querySelectorAll(".fenetre__cadre").forEach(function (cadre) {
-    fetch(cadre.src, { mode: "no-cors", cache: "no-store" })
+    fetch(cadre.src, { method: "HEAD", mode: "no-cors", cache: "no-store" })
       .then(function () { cadre.parentElement.classList.add("charge"); })
       .catch(function () { cadre.remove(); });
   });
