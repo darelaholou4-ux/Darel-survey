@@ -160,6 +160,14 @@ a:hover { color: var(--accent); }
   padding: 4.5rem 0 2.5rem;
 }
 
+.sur-titre {
+  margin: 0 0 0.9rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-fonce);
+}
+
 h1 {
   margin: 0 0 1.1rem;
   font-family: var(--serif);
