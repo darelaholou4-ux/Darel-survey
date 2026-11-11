@@ -1,6 +1,6 @@
 # Portfolio — AHOLOU Crusis Darel
 
-Une seule page, en français : cinq projets avec leur fenêtre d'aperçu, tarifs en francs CFA, engagements et contact. L'atelier s'appelle CRUS-BOSS.
+Une page d'accueil et une page par projet. L'accueil garde l'essentiel — promesse, liste des travaux, tarifs, engagements, contact ; chaque projet a sa page : point de départ, ce qui a été fait, technique, site en vrai. L'atelier s'appelle CRUS-BOSS.
 
 **En ligne :** <https://darelaholou4-ux.github.io/Darel-survey/portfolio/>
 
@@ -8,7 +8,8 @@ Une seule page, en français : cinq projets avec leur fenêtre d'aperçu, tarifs
 
 | Fichier | Rôle |
 | --- | --- |
-| `index.html` | La page, en HTML sémantique |
+| `index.html` | L'accueil : ouverture, liste des cinq projets, tarifs, garanties, contact |
+| `projets/*.html` | Une page par projet, avec sa fenêtre d'aperçu |
 | `style.css` | Mise en page, deux teintes douces, thème clair et sombre, styles d'impression |
 | `assets/fonts/` | Inter et Instrument Serif, auto-hébergées (licence OFL) |
 | `assets/apercu-lien.png` | Image d'aperçu pour les liens partagés (1200 × 630) |

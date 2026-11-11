@@ -220,6 +220,12 @@ if (monograms.size === 1 && !new RegExp(`aria-label="${[...monograms][0]}[^"]*ho
 /* ------------------------------------------------------------------------ */
 const pagesPortfolio = [
   { fichier: "portfolio/index.html", feuille: "portfolio/style.css", canonical: true, donneesStructurees: true },
+  ...["lemessia-triomphe", "darel-survey", "whatsapp-analyzer", "uac-minigames", "hilary"].map((slug) => ({
+    fichier: `portfolio/projets/${slug}.html`,
+    feuille: "portfolio/style.css",
+    canonical: true,
+    donneesStructurees: false,
+  })),
 ];
 
 for (const page of pagesPortfolio) {
@@ -241,20 +247,23 @@ for (const page of pagesPortfolio) {
   if (page.canonical && !/rel="canonical"/.test(folio)) warn(`${nom} : lien canonical absent`);
 
   // Aucune ressource chargée depuis un autre domaine (les liens sortants, si).
+  const dossierPage = dirname(join(root, page.fichier));
+  const dossierCss = dirname(join(root, page.feuille));
+
   const ressources = [
-    ...folio.matchAll(/<(?:img|script)[^>]+src="([^"]+)"/g),
+    // dans le HTML : les chemins partent du dossier de la page
+    ...[...folio.matchAll(/<(?:img|script)[^>]+src="([^"]+)"/g)].map((m) => [dossierPage, m[1]]),
     // un <link> ne charge une ressource que pour ces relations-là
     ...[...folio.matchAll(/<link[^>]*>/g)]
       .filter((m) => /rel="(stylesheet|preload|icon|apple-touch-icon|manifest)"/.test(m[0]))
-      .map((m) => [null, (m[0].match(/href="([^"]+)"/) || [])[1]]),
-    ...folioCss.matchAll(/url\(["']?([^"')]+)["']?\)/g),
-  ]
-    .map((m) => m[1])
-    .filter(Boolean);
+      .map((m) => [dossierPage, (m[0].match(/href="([^"]+)"/) || [])[1]]),
+    // dans la feuille de style : les chemins partent du dossier du CSS
+    ...[...folioCss.matchAll(/url\(["']?([^"')]+)["']?\)/g)].map((m) => [dossierCss, m[1]]),
+  ].filter(([, url]) => Boolean(url));
 
-  for (const url of ressources) {
+  for (const [dossier, url] of ressources) {
     if (/^(https?:)?\/\//.test(url)) fail(`${nom} : ressource externe → ${url}`);
-    else if (!url.startsWith("data:") && !existsSync(join(root, "portfolio", url.replace(/^\.\//, "")))) {
+    else if (!url.startsWith("data:") && !existsSync(resolve(dossier, url))) {
       fail(`${nom} : fichier introuvable → ${url}`);
     }
   }
@@ -298,5 +307,5 @@ if (errors.length) {
 }
 
 console.log(
-  `✔ ${errors.length} erreur, ${warnings.length} avertissement — ${htmlFiles.length} pages vérifiées.`
+  `✔ ${errors.length} erreur, ${warnings.length} avertissement — ${htmlFiles.length + pagesPortfolio.length} pages vérifiées.`
 );
