@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UAC Mini Games — CRUS-BOSS</title>
-<meta name="description" content="Des mini-jeux pour étudiants, avec connexion et classement conservé d’une visite à l’autre.">
-<link rel="canonical" href="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/uac-minigames.html">
+<title>Kado — CRUS-BOSS</title>
+<meta name="description" content="Kado : un jeu-concours en ligne où l’on paie son entrée et où les meilleurs repartent avec un lot. Prototype jouable, jamais lancé — aujourd’hui un mini-jeu par semaine.">
+<link rel="canonical" href="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/kado.html">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="fr_BJ">
-<meta property="og:url" content="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/uac-minigames.html">
-<meta property="og:title" content="UAC Mini Games — CRUS-BOSS">
-<meta property="og:description" content="Des mini-jeux pour étudiants, avec connexion et classement conservé d’une visite à l’autre.">
+<meta property="og:url" content="https://darelaholou4-ux.github.io/Darel-survey/portfolio/projets/kado.html">
+<meta property="og:title" content="Kado — CRUS-BOSS">
+<meta property="og:description" content="Kado : un jeu-concours en ligne où l’on paie son entrée et où les meilleurs repartent avec un lot. Prototype jouable, jamais lancé.">
 <meta property="og:image" content="https://darelaholou4-ux.github.io/Darel-survey/portfolio/assets/apercu-lien.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
@@ -35,10 +35,10 @@
   <p class="fil"><a href="../index.html#travaux">Tous les projets</a></p>
 
   <header class="entete-projet">
-    <p class="sur-titre">04 · Jeu concours</p>
-    <h1>UAC Mini Games</h1>
-    <p class="accroche">Un jeu-concours étudiant à jouer au pouce, entre deux cours : un compte, une partie, un classement qui survit au rafraîchissement de la page.</p>
-    <p class="etiquettes"><span class="etiquette">Next.js</span><span class="etiquette">Firebase</span></p>
+    <p class="sur-titre">04 · Jeu en ligne</p>
+    <h1>Kado</h1>
+    <p class="accroche">Un jeu-concours en ligne : on paie son entrée, les meilleurs repartent avec un lot. Le prototype est fini — il n’a jamais été lancé, faute de publicité et de joueurs.</p>
+    <p class="etiquettes"><span class="etiquette">Next.js</span><span class="etiquette">Firebase</span><span class="etiquette">Prototype</span></p>
   </header>
 
   <figure class="fenetre fenetre--grande">
@@ -48,39 +48,41 @@
     </div>
     <div class="fenetre__vue">
       <div class="fenetre__repli fenetre__repli--chaud">
-        <p class="fenetre__marque">UAC Mini Games</p>
+        <p class="fenetre__marque">Kado</p>
         <p class="fenetre__note">Aperçu du site</p>
-        <a href="https://uac-minigames.vercel.app/">Voir le jeu</a>
+        <a href="https://uac-minigames.vercel.app/">Voir le prototype</a>
       </div>
-      <iframe class="fenetre__cadre" src="https://uac-minigames.vercel.app/" title="Aperçu : UAC Mini Games" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+      <iframe class="fenetre__cadre" src="https://uac-minigames.vercel.app/" title="Aperçu : Kado" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
     </div>
   </figure>
 
   <section class="fiche">
     <h2>Le point de départ</h2>
-    <p>Un concours sans mémoire ne tient pas. Il fallait identifier les joueurs, garder les scores côté serveur et offrir un écran qui se manipule au pouce, entre deux cours.</p>
+    <p>L’idée tenait en une phrase : des parties courtes, une entrée payante, des lots pour les premiers. Il fallait donc identifier les joueurs, encaisser, garder les scores côté serveur et afficher un classement que personne ne puisse trafiquer.</p>
+    <p>Le prototype est allé au bout : on crée un compte, on joue, le score est enregistré et le classement se met à jour. Ce qui n’est jamais venu, ce sont les joueurs.</p>
   </section>
 
   <section class="fiche">
     <h2>Ce que j’ai fait</h2>
     <ul class="points">
-        <li>Connexion des joueurs, sans formulaire interminable.</li>
+        <li>Compte joueur, sans formulaire interminable.</li>
         <li>Scores enregistrés dans Firebase : le classement ne se perd pas.</li>
+        <li>Un classement public qui se met à jour sans recharger la page.</li>
         <li>Écran pensé d’abord pour le téléphone, jouable à une main.</li>
-        <li>Un classement public qui se met à jour sans qu’on recharge la page.</li>
     </ul>
   </section>
 
 
   <section class="fiche">
     <h2>Ce qui a été difficile</h2>
-    <p>Le classement. Un jeu où l’on peut rejouer pose deux questions en même temps : garder le meilleur score et non le dernier, et empêcher qu’un même joueur apparaisse cinq fois parce qu’il a rouvert la page. J’ai donc rangé les scores par joueur côté Firebase, et laissé le classement se recalculer à l’affichage.</p>
-    <p>Le réseau, ensuite. Un étudiant qui joue dans un couloir n’a pas toujours de connexion stable : l’écran devait dire quand le score était bien enregistré, et ne pas le perdre si le téléphone se déconnectait au mauvais moment.</p>
+    <p>Le classement. Un jeu où l’on peut rejouer pose deux questions en même temps : garder le meilleur score et non le dernier, et empêcher qu’un même joueur apparaisse cinq fois parce qu’il a rouvert la page. J’ai rangé les scores par joueur côté Firebase et laissé le classement se recalculer à l’affichage.</p>
+    <p>Le lancement, surtout. Un jeu payant n’existe pas tant qu’il n’a pas d’audience : j’ai construit le moteur avant de construire les joueurs. Sans publicité et sans communauté, personne ne paie l’entrée d’un jeu dont il n’a jamais entendu parler. C’est la leçon la plus utile du projet, et elle ne s’apprend pas dans le code.</p>
   </section>
 
   <section class="fiche">
     <h2>Ce que je ferais autrement</h2>
-    <p>J’ouvrirais le jeu sans créer de compte : un pseudo suffirait pour la première partie, et l’inscription ne serait proposée qu’au moment de garder son score. Chaque champ demandé avant de jouer coûte des joueurs.</p>
+    <p>Je commencerais par le gratuit. Un mini-jeu par semaine, des points cumulés, un classement par saison : les joueurs arrivent pour le jeu et restent pour le classement. L’entrée payante et les lots ne viennent qu’après, sur les tournois, quand la communauté existe déjà.</p>
+    <p>C’est exactement la direction que prend Kado aujourd’hui : un jeu par semaine, des points, une saison. Le moteur de comptes et de scores, lui, est déjà écrit.</p>
   </section>
 
   <section class="fiche">
@@ -94,10 +96,12 @@
       <dd>Vercel</dd>
       <dt>Mon rôle</dt>
       <dd>conception, code, mise en ligne</dd>
+      <dt>État</dt>
+      <dd>prototype jouable, jamais lancé</dd>
     </dl>
   </section>
 
-  <p class="actions"><a class="bouton" href="https://uac-minigames.vercel.app/">Voir le jeu</a></p>
+  <p class="actions"><a class="bouton" href="https://uac-minigames.vercel.app/">Voir le prototype</a></p>
 
   <nav class="pagination" aria-label="Autres projets">
     <a class="pagination__lien" href="whatsapp-analyzer.html"><span class="pagination__sens">Projet précédent</span>WhatsApp Analyzer</a>
