@@ -37,7 +37,7 @@
   <header class="entete-projet">
     <p class="sur-titre">04 · Jeu concours</p>
     <h1>UAC Mini Games</h1>
-    <p class="accroche">Un jeu-concours étudiant : des comptes, des parties, un classement qui survit au rafraîchissement de la page.</p>
+    <p class="accroche">Un jeu-concours étudiant à jouer au pouce, entre deux cours : un compte, une partie, un classement qui survit au rafraîchissement de la page.</p>
     <p class="etiquettes"><span class="etiquette">Next.js</span><span class="etiquette">Firebase</span></p>
   </header>
 
@@ -66,8 +66,21 @@
     <ul class="points">
         <li>Connexion des joueurs, sans formulaire interminable.</li>
         <li>Scores enregistrés dans Firebase : le classement ne se perd pas.</li>
-        <li>Écran pensé d’abord pour le téléphone.</li>
+        <li>Écran pensé d’abord pour le téléphone, jouable à une main.</li>
+        <li>Un classement public qui se met à jour sans qu’on recharge la page.</li>
     </ul>
+  </section>
+
+
+  <section class="fiche">
+    <h2>Ce qui a été difficile</h2>
+    <p>Le classement. Un jeu où l’on peut rejouer pose deux questions en même temps : garder le meilleur score et non le dernier, et empêcher qu’un même joueur apparaisse cinq fois parce qu’il a rouvert la page. J’ai donc rangé les scores par joueur côté Firebase, et laissé le classement se recalculer à l’affichage.</p>
+    <p>Le réseau, ensuite. Un étudiant qui joue dans un couloir n’a pas toujours de connexion stable : l’écran devait dire quand le score était bien enregistré, et ne pas le perdre si le téléphone se déconnectait au mauvais moment.</p>
+  </section>
+
+  <section class="fiche">
+    <h2>Ce que je ferais autrement</h2>
+    <p>J’ouvrirais le jeu sans créer de compte : un pseudo suffirait pour la première partie, et l’inscription ne serait proposée qu’au moment de garder son score. Chaque champ demandé avant de jouer coûte des joueurs.</p>
   </section>
 
   <section class="fiche">
@@ -79,14 +92,16 @@
       <dd>Firebase</dd>
       <dt>Hébergement</dt>
       <dd>Vercel</dd>
+      <dt>Mon rôle</dt>
+      <dd>conception, code, mise en ligne</dd>
     </dl>
   </section>
 
   <p class="actions"><a class="bouton" href="https://uac-minigames.vercel.app/">Voir le jeu</a></p>
 
   <nav class="pagination" aria-label="Autres projets">
-    <a class="pagination__lien" href="/projets/whatsapp-analyzer.html"><span class="pagination__sens">Projet précédent</span>WhatsApp Analyzer</a>
-    <a class="pagination__lien pagination__lien--droite" href="/projets/hilary.html"><span class="pagination__sens">Projet suivant</span>Hilary</a>
+    <a class="pagination__lien" href="whatsapp-analyzer.html"><span class="pagination__sens">Projet précédent</span>WhatsApp Analyzer</a>
+    <a class="pagination__lien pagination__lien--droite" href="hilary.html"><span class="pagination__sens">Projet suivant</span>Hilary</a>
   </nav>
 
   <section class="relance">
@@ -104,7 +119,7 @@
 
 <script>
   document.querySelectorAll(".fenetre__cadre").forEach(function (cadre) {
-    fetch(cadre.src, { mode: "no-cors", cache: "no-store" })
+    fetch(cadre.src, { method: "HEAD", mode: "no-cors", cache: "no-store" })
       .then(function () { cadre.parentElement.classList.add("charge"); })
       .catch(function () { cadre.remove(); });
   });
