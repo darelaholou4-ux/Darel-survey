@@ -220,7 +220,7 @@ if (monograms.size === 1 && !new RegExp(`aria-label="${[...monograms][0]}[^"]*ho
 /* ------------------------------------------------------------------------ */
 const pagesPortfolio = [
   { fichier: "portfolio/index.html", feuille: "portfolio/style.css", canonical: true, donneesStructurees: true },
-  ...["lemessia-triomphe", "darel-survey", "whatsapp-analyzer", "uac-minigames", "hilary"].map((slug) => ({
+  ...["lemessia-triomphe", "darel-survey", "whatsapp-analyzer", "kado", "hilary"].map((slug) => ({
     fichier: `portfolio/projets/${slug}.html`,
     feuille: "portfolio/style.css",
     canonical: true,
